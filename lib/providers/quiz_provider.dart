@@ -1,4 +1,5 @@
 import 'package:bible_quiz_game/models/category_model.dart';
+import 'package:bible_quiz_game/models/question_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../repositories/question_repository.dart';
