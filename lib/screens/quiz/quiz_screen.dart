@@ -1,5 +1,4 @@
 import 'package:bible_quiz_game/models/category_model.dart';
-import 'package:bible_quiz_game/screens/result/result_screen.dart';
 import 'package:bible_quiz_game/widgets/answer_card.dart';
 import 'package:bible_quiz_game/widgets/quiz_progress.dart';
 import 'package:flutter/material.dart';
@@ -85,7 +84,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
               Expanded(
                 child: ListView.separated(
                   itemCount: question.options.length,
-                  separatorBuilder: (_, __) {
+                  separatorBuilder: (_, _) {
                     return const SizedBox(height: 12);
                   },
                   itemBuilder: (context, index) {

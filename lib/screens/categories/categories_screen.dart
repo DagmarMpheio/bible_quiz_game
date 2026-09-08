@@ -40,7 +40,7 @@ class CategoriesScreen extends StatelessWidget {
       body: ListView.separated(
         padding: const EdgeInsets.all(16),
         itemCount: QuizCategory.values.length,
-        separatorBuilder: (_, __) {
+        separatorBuilder: (_, _) {
           return const SizedBox(height: 10);
         },
         itemBuilder: (context, index) {
