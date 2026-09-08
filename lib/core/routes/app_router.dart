@@ -1,4 +1,5 @@
 import 'package:bible_quiz_game/models/category_model.dart';
+import 'package:bible_quiz_game/screens/splash/splash_screen.dart';
 import 'package:go_router/go_router.dart';
 
 import '../../screens/categories/categories_screen.dart';
@@ -9,8 +10,18 @@ import '../../screens/result/result_screen.dart';
 final GoRouter appRouter = GoRouter(
   initialLocation: '/',
   routes: [
-    GoRoute(
+     GoRoute(
       path: '/',
+      name: SplashScreen.routeName,
+      builder: (
+        context,
+        state,
+      ) {
+        return const SplashScreen();
+      },
+    ),
+    GoRoute(
+      path: '/home',
       name: HomeScreen.routeName,
       builder: (context, state) {
         return const HomeScreen();

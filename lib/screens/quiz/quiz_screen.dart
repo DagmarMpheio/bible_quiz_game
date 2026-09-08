@@ -1,5 +1,7 @@
 import 'package:bible_quiz_game/models/category_model.dart';
 import 'package:bible_quiz_game/screens/result/result_screen.dart';
+import 'package:bible_quiz_game/widgets/answer_card.dart';
+import 'package:bible_quiz_game/widgets/quiz_progress.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
@@ -12,12 +14,14 @@ import '../../providers/quiz_provider.dart';
 //===============================================================
 class QuizScreen extends ConsumerStatefulWidget {
   final QuizCategory category;
-
-  const QuizScreen({super.key, required this.category});
   static const String routeName = 'quiz-screen';
 
+  const QuizScreen({super.key, required this.category});
+
   @override
-  ConsumerState<QuizScreen> createState() => _QuizScreenState();
+  ConsumerState<QuizScreen> createState() {
+    return _QuizScreenState();
+  }
 }
 
 class _QuizScreenState extends ConsumerState<QuizScreen> {
@@ -48,10 +52,11 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
     final question = quiz.currentQuestion;
 
     if (question == null) {
-      return const Scaffold(body: Center(child: CircularProgressIndicator()));
+      return Scaffold(
+        appBar: AppBar(title: Text(widget.category.title)),
+        body: const Center(child: CircularProgressIndicator()),
+      );
     }
-
-    final progress = (quiz.currentIndex + 1) / quiz.questions.length;
 
     return Scaffold(
       appBar: AppBar(title: Text(widget.category.title)),
@@ -61,16 +66,9 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(
-                'Pergunta ${quiz.currentIndex + 1} de ${quiz.questions.length}',
-              ),
-
-              const SizedBox(height: 10),
-
-              LinearProgressIndicator(
-                value: progress,
-                minHeight: 8,
-                borderRadius: BorderRadius.circular(10),
+              QuizProgress(
+                currentQuestion: quiz.currentIndex + 1,
+                totalQuestions: quiz.questions.length,
               ),
 
               const SizedBox(height: 32),
@@ -91,7 +89,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
                     return const SizedBox(height: 12);
                   },
                   itemBuilder: (context, index) {
-                    return _AnswerOption(
+                    return AnswerCard(
                       index: index,
                       text: question.options[index],
                       selectedAnswer: quiz.selectedAnswer,
@@ -105,101 +103,100 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
                 ),
               ),
 
-              if (quiz.answered) ...[
-                const SizedBox(height: 16),
-
-                Text(
-                  question.bibleReference,
-                  style: const TextStyle(
-                    fontWeight: FontWeight.bold,
-                    color: AppColors.primary,
-                  ),
-                ),
-
-                const SizedBox(height: 8),
-
-                Text(question.explanation),
-
-                const SizedBox(height: 20),
-
-                ElevatedButton(
-                  onPressed: () {
-                    if (quiz.isLastQuestion) {
-                      context.goNamed(ResultScreen.routeName);
-                    } else {
-                      ref.read(quizProvider.notifier).nextQuestion();
-                    }
-                  },
-                  child: Text(
-                    quiz.isLastQuestion ? 'Ver resultado' : 'Próxima pergunta',
-                  ),
-                ),
-              ],
+              if (quiz.answered) _buildExplanation(context, quiz),
             ],
           ),
         ),
       ),
     );
   }
-}
 
-class _AnswerOption extends StatelessWidget {
-  final int index;
+  Widget _buildExplanation(BuildContext context, QuizState quiz) {
+    final question = quiz.currentQuestion!;
 
-  final String text;
+    final selectedAnswer = quiz.selectedAnswer;
 
-  final int? selectedAnswer;
+    final isCorrect = selectedAnswer == question.correctAnswerIndex;
 
-  final int correctAnswer;
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        const SizedBox(height: 16),
 
-  final bool answered;
-
-  final VoidCallback onTap;
-
-  const _AnswerOption({
-    required this.index,
-    required this.text,
-    required this.selectedAnswer,
-    required this.correctAnswer,
-    required this.answered,
-    required this.onTap,
-  });
-
-  @override
-  Widget build(BuildContext context) {
-    Color? backgroundColor;
-
-    if (answered) {
-      if (index == correctAnswer) {
-        backgroundColor = AppColors.success.withValues(alpha: 0.15);
-      } else if (index == selectedAnswer) {
-        backgroundColor = AppColors.error.withValues(alpha: 0.15);
-      }
-    }
-
-    return InkWell(
-      onTap: answered ? null : onTap,
-      borderRadius: BorderRadius.circular(14),
-      child: Container(
-        padding: const EdgeInsets.all(18),
-        decoration: BoxDecoration(
-          color: backgroundColor,
-          borderRadius: BorderRadius.circular(14),
-          border: Border.all(color: Colors.grey.shade300),
-        ),
-        child: Row(
+        Row(
           children: [
-            CircleAvatar(
-              radius: 17,
-              child: Text(String.fromCharCode(65 + index)),
+            Icon(
+              isCorrect ? Icons.check_circle : Icons.cancel,
+              color: isCorrect ? AppColors.success : AppColors.error,
             ),
 
-            const SizedBox(width: 16),
+            const SizedBox(width: 8),
 
-            Expanded(child: Text(text, style: const TextStyle(fontSize: 16))),
+            Text(
+              isCorrect ? 'Resposta correta!' : 'Resposta incorreta',
+              style: TextStyle(
+                fontWeight: FontWeight.bold,
+                color: isCorrect ? AppColors.success : AppColors.error,
+              ),
+            ),
           ],
         ),
-      ),
+
+        const SizedBox(height: 16),
+
+        Container(
+          width: double.infinity,
+          padding: const EdgeInsets.all(16),
+          decoration: BoxDecoration(
+            color: AppColors.primary.withValues(alpha: 0.06),
+            borderRadius: BorderRadius.circular(16),
+          ),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Row(
+                children: [
+                  const Icon(
+                    Icons.menu_book_rounded,
+                    size: 20,
+                    color: AppColors.secondary,
+                  ),
+
+                  const SizedBox(width: 8),
+
+                  Text(
+                    question.bibleReference,
+                    style: const TextStyle(
+                      fontWeight: FontWeight.bold,
+                      color: AppColors.primary,
+                    ),
+                  ),
+                ],
+              ),
+
+              const SizedBox(height: 10),
+
+              Text(question.explanation),
+            ],
+          ),
+        ),
+
+        const SizedBox(height: 20),
+
+        ElevatedButton(
+          onPressed: () {
+            if (quiz.isLastQuestion) {
+              context.go('/result');
+              return;
+            }
+
+            ref.read(quizProvider.notifier).nextQuestion();
+          },
+          child: Text(
+            quiz.isLastQuestion ? 'Ver resultado' : 'Próxima pergunta',
+          ),
+        ),
+      ],
     );
   }
 }
