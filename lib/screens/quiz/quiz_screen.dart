@@ -8,48 +8,74 @@ import 'package:go_router/go_router.dart';
 import '../../core/constants/app_colors.dart';
 import '../../providers/quiz_provider.dart';
 
-//===============================================================
-// Tela que apresenta as perguntas do quiz com opções de resposta.
-//===============================================================
+/// Tela responsável pela execução de uma sessão do Quiz Bíblico.
+///
+/// Esta tela:
+/// - carrega as perguntas da categoria selecionada;
+/// - observa o estado mantido pelo Riverpod;
+/// - apresenta a pergunta e as alternativas;
+/// - mostra feedback após cada resposta;
+/// - permite avançar até ao resultado final.
 class QuizScreen extends ConsumerStatefulWidget {
+  /// Categoria escolhida pelo utilizador antes de iniciar o quiz.
   final QuizCategory category;
+
+  /// Nome da rota utilizado pelo GoRouter.
   static const String routeName = 'quiz-screen';
 
   const QuizScreen({super.key, required this.category});
 
+  /// Cria o estado responsável pela lógica da tela.
   @override
   ConsumerState<QuizScreen> createState() {
     return _QuizScreenState();
   }
 }
 
+/// Estado interno da [QuizScreen].
+///
+/// Como a tela utiliza [ConsumerState], possui acesso direto ao objeto `ref`
+/// necessário para ler e observar providers do Riverpod.
 class _QuizScreenState extends ConsumerState<QuizScreen> {
+  /// Executado uma única vez quando a tela entra na árvore de widgets.
   @override
   void initState() {
     super.initState();
 
+    /// Agenda o carregamento das perguntas para depois do primeiro frame.
+    ///
+    /// Isso evita modificar o estado do provider durante a fase inicial de
+    /// construção da interface.
     WidgetsBinding.instance.addPostFrameCallback((_) {
       _loadQuestions();
     });
   }
 
+  /// Carrega as perguntas da categoria escolhida e inicia a sessão.
   void _loadQuestions() {
+    /// Obtém a implementação do repositório através do Riverpod.
     final repository = ref.read(questionRepositoryProvider);
 
+    /// Solicita até 10 perguntas pertencentes à categoria actual.
     final questions = repository.getQuestionsByCategory(
       widget.category,
       limit: 10,
     );
 
+    /// Entrega as perguntas ao controlador responsável pelo estado do quiz.
     ref.read(quizProvider.notifier).startQuiz(widget.category, questions);
   }
 
+  /// Constrói a interface principal do quiz.
   @override
   Widget build(BuildContext context) {
+    /// Observa o estado. Sempre que ele for alterado, a tela é reconstruída.
     final quiz = ref.watch(quizProvider);
 
+    /// Obtém a pergunta atualmente selecionada pelo estado.
     final question = quiz.currentQuestion;
 
+    /// Enquanto não existir uma pergunta disponível, mostra carregamento.
     if (question == null) {
       return Scaffold(
         appBar: AppBar(title: Text(widget.category.title)),
@@ -65,6 +91,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              /// Indica visualmente a posição actual dentro do quiz.
               QuizProgress(
                 currentQuestion: quiz.currentIndex + 1,
                 totalQuestions: quiz.questions.length,
@@ -72,6 +99,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
 
               const SizedBox(height: 32),
 
+              /// Enunciado da pergunta actual.
               Text(
                 question.question,
                 style: Theme.of(context).textTheme.headlineSmall?.copyWith(
@@ -81,6 +109,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
 
               const SizedBox(height: 30),
 
+              /// Área expansível que contém todas as alternativas.
               Expanded(
                 child: ListView.separated(
                   itemCount: question.options.length,
@@ -89,11 +118,24 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
                   },
                   itemBuilder: (context, index) {
                     return AnswerCard(
+                      /// Índice da alternativa. Também é usado para gerar
+                      /// automaticamente as letras A, B, C e D.
                       index: index,
+
+                      /// Texto da alternativa actual.
                       text: question.options[index],
+
+                      /// Alternativa escolhida pelo utilizador.
                       selectedAnswer: quiz.selectedAnswer,
+
+                      /// Índice utilizado pelo widget para destacar a resposta
+                      /// correta após a seleção.
                       correctAnswer: question.correctAnswerIndex,
+
+                      /// Informa se a pergunta já foi respondida.
                       answered: quiz.answered,
+
+                      /// Regista a alternativa escolhida no estado global.
                       onTap: () {
                         ref.read(quizProvider.notifier).answerQuestion(index);
                       },
@@ -102,6 +144,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
                 ),
               ),
 
+              /// O feedback só aparece depois de uma resposta ser selecionada.
               if (quiz.answered) _buildExplanation(context, quiz),
             ],
           ),
@@ -110,11 +153,22 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
     );
   }
 
+  /// Constrói a área de feedback exibida depois da resposta.
+  ///
+  /// O método apresenta:
+  /// - se a resposta foi correta ou incorreta;
+  /// - a referência bíblica;
+  /// - uma pequena explicação;
+  /// - o botão para avançar ou ver o resultado.
   Widget _buildExplanation(BuildContext context, QuizState quiz) {
+    /// Nesta fase a pergunta é garantidamente não nula porque este método só é
+    /// chamado depois da construção da pergunta actual.
     final question = quiz.currentQuestion!;
 
+    /// Índice selecionado pelo utilizador.
     final selectedAnswer = quiz.selectedAnswer;
 
+    /// Compara a resposta escolhida com a resposta correta.
     final isCorrect = selectedAnswer == question.correctAnswerIndex;
 
     return Column(
@@ -122,6 +176,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
       children: [
         const SizedBox(height: 16),
 
+        /// Feedback textual e visual da resposta.
         Row(
           children: [
             Icon(
@@ -143,6 +198,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
 
         const SizedBox(height: 16),
 
+        /// Caixa com a referência bíblica e a explicação da resposta.
         Container(
           width: double.infinity,
           padding: const EdgeInsets.all(16),
@@ -153,6 +209,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
+              /// Linha da referência bíblica.
               Row(
                 children: [
                   const Icon(
@@ -175,6 +232,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
 
               const SizedBox(height: 10),
 
+              /// Explicação complementar da resposta.
               Text(question.explanation),
             ],
           ),
@@ -182,13 +240,16 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
 
         const SizedBox(height: 20),
 
+        /// Botão que avança para a pergunta seguinte ou finaliza o quiz.
         ElevatedButton(
           onPressed: () {
             if (quiz.isLastQuestion) {
+              /// Ao responder a última pergunta, abre a tela de resultado.
               context.go('/result');
               return;
             }
 
+            /// Caso contrário, actualiza o estado para a próxima pergunta.
             ref.read(quizProvider.notifier).nextQuestion();
           },
           child: Text(
