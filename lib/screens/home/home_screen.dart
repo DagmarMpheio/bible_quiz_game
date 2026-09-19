@@ -59,6 +59,18 @@ class HomeScreen extends StatelessWidget {
 
               const SizedBox(height: 12),
 
+              /// Permite consultar todas as tentativas anteriormente
+              /// concluídas e guardadas localmente.
+              OutlinedButton.icon(
+                onPressed: () {
+                  context.pushNamed(HistoryScreen.routeName);
+                },
+                icon: const Icon(Icons.history_rounded),
+                label: const Text('Histórico'),
+              ),
+
+              const SizedBox(height: 12),
+
               /// Permite consultar informações sobre a aplicação,
               /// autoria, copyright e licenciamento.
               TextButton.icon(

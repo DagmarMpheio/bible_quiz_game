@@ -109,5 +109,15 @@ final GoRouter appRouter = GoRouter(
         return const AboutScreen();
       },
     ),
+
+    /// Rota responsável por apresentar o histórico
+    /// das tentativas realizadas pelo utilizador.
+    GoRoute(
+      path: '/history',
+      name: HistoryScreen.routeName,
+      builder: (context, state) {
+        return const HistoryScreen();
+      },
+    ),
   ],
 );

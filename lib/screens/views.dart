@@ -26,3 +26,4 @@ export 'difficulty/difficulty_screen.dart';
 export 'result/result_screen.dart';
 export 'review/review_answers_screen.dart';
 export 'about/about_screen.dart';
+export 'history/history_screen.dart';

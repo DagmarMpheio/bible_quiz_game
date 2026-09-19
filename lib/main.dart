@@ -1,3 +1,4 @@
+import 'package:bible_quiz_game/core/database/hive_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
@@ -6,14 +7,20 @@ import 'core/theme/app_theme.dart';
 
 /// Ponto de entrada da aplicação.
 ///
-/// O [ProviderScope] envolve toda a aplicação e permite que os widgets abaixo
-/// dele utilizem os providers definidos com Riverpod.
-void main() {
-  runApp(
-    const ProviderScope(
-      child: BibleQuizApp(),
-    ),
-  );
+/// Antes de iniciar a interface, são inicializados todos os
+/// serviços necessários para o funcionamento da aplicação,
+/// incluindo a persistência local com Hive CE.
+void main() async {
+  /// Garante que os serviços Flutter estão disponíveis antes
+  /// de executarmos código assíncrono relacionado com plugins.
+  WidgetsFlutterBinding.ensureInitialized();
+
+  /// Inicializa a base de dados local.
+  await HiveService.initialize();
+
+  /// Inicia a aplicação depois de os serviços essenciais
+  /// estarem correctamente preparados.
+  runApp(const ProviderScope(child: BibleQuizApp()));
 }
 
 /// Widget raiz do Quiz Bíblico.

@@ -1,3 +1,5 @@
+import 'package:bible_quiz_game/models/quiz_history_model.dart';
+import 'package:bible_quiz_game/providers/quiz_history_provider.dart';
 import 'package:bible_quiz_game/screens/views.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -14,11 +16,61 @@ import '../../providers/quiz_provider.dart';
 /// - rever todas as respostas;
 /// - iniciar outro quiz;
 /// - voltar para a Home.
-class ResultScreen extends ConsumerWidget {
+///
+class ResultScreen extends ConsumerStatefulWidget {
+  /// Nome utilizado pelo GoRouter.
+  static const String routeName = 'result-screen';
+
   const ResultScreen({super.key});
 
-  /// Nome utilizado para identificar a rota no GoRouter.
-  static const String routeName = 'result-screen';
+  @override
+  ConsumerState<ResultScreen> createState() {
+    return _ResultScreenState();
+  }
+}
+
+class _ResultScreenState extends ConsumerState<ResultScreen> {
+  /// Executado quando o ecrã de resultado é aberto.
+  @override
+  void initState() {
+    super.initState();
+
+    /// Espera pelo primeiro frame antes de interagir
+    /// com os providers.
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _saveHistory();
+    });
+  }
+
+  /// Guarda automaticamente o resultado da sessão actual.
+  ///
+  /// A utilização do `sessionId` como chave no Hive impede
+  /// a criação de registos duplicados.
+  Future<void> _saveHistory() async {
+    /// Obtém o estado final da sessão.
+    final quiz = ref.read(quizProvider);
+
+    /// Valida as informações mínimas necessárias.
+    if (quiz.sessionId == null ||
+        quiz.category == null ||
+        quiz.difficulty == null ||
+        quiz.questions.isEmpty) {
+      return;
+    }
+
+    /// Constrói o registo que será persistido.
+    final history = QuizHistoryModel(
+      id: quiz.sessionId!,
+      categoryName: quiz.category!.name,
+      difficultyName: quiz.difficulty!.name,
+      correctAnswers: quiz.correctAnswers,
+      totalQuestions: quiz.questions.length,
+      completedAt: DateTime.now(),
+    );
+
+    /// Guarda o resultado localmente.
+    await ref.read(quizHistoryProvider.notifier).save(history);
+  }
 
   /// Retorna uma mensagem personalizada de acordo com o desempenho.
   ///
@@ -46,7 +98,7 @@ class ResultScreen extends ConsumerWidget {
 
   /// Constrói a interface da tela de resultado.
   @override
-  Widget build(BuildContext context, WidgetRef ref) {
+  Widget build(BuildContext context) {
     /// Observa o estado actual do quiz.
     final quiz = ref.watch(quizProvider);
 

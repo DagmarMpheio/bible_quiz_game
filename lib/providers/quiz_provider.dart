@@ -85,10 +85,19 @@ class QuizState {
   /// - informação sobre a resposta estar correta ou incorreta.
   final List<QuizAnswerModel> answerHistory;
 
+  /// Identificador único da sessão actual.
+  ///
+  /// É criado quando o utilizador inicia um novo quiz e permanece
+  /// igual até que essa sessão termine.
+  ///
+  /// Também é utilizado como identificador do histórico.
+  final String? sessionId;
+
   /// Cria um estado do quiz.
   ///
   /// Os valores padrão representam um quiz ainda não iniciado.
   const QuizState({
+    this.sessionId,
     this.category,
     this.questions = const [],
     this.currentIndex = 0,
@@ -138,19 +147,21 @@ class QuizNotifier extends Notifier<QuizState> {
     return const QuizState();
   }
 
-  /// Inicia uma nova sessão do quiz.
+  /// Inicia uma nova sessão do Quiz Bíblico.
   ///
-  /// [category] identifica a categoria seleccionada.
-  ///
-  /// [difficulty] identifica o nível escolhido pelo utilizador.
-  ///
-  /// [questions] contém as perguntas que serão utilizadas nesta sessão.
+  /// Cada nova tentativa recebe um identificador próprio.
+  /// Esse identificador será posteriormente utilizado para
+  /// persistir o resultado no histórico.
   void startQuiz(
     QuizCategory category,
     QuizDifficulty difficulty,
     List<QuestionModel> questions,
   ) {
     state = QuizState(
+      /// O timestamp em microssegundos fornece um identificador
+      /// suficientemente único para sessões locais.
+      sessionId: 'quiz-${DateTime.now().microsecondsSinceEpoch}',
+
       category: category,
       difficulty: difficulty,
       questions: questions,
@@ -196,6 +207,9 @@ class QuizNotifier extends Notifier<QuizState> {
 
     /// Atualiza o estado do quiz.
     state = QuizState(
+      /// Mantém o identificador da sessão actual.
+      sessionId: state.sessionId,
+      /// Mantém a categoria seleccionada durante toda a sessão.
       category: state.category,
 
       /// Mantém a dificuldade durante toda a sessão.
@@ -235,6 +249,8 @@ class QuizNotifier extends Notifier<QuizState> {
 
     /// Cria o estado correspondente à próxima pergunta.
     state = QuizState(
+      /// Mantém o identificador da sessão actual.
+      sessionId: state.sessionId,
       category: state.category,
 
       /// Preserva o nível seleccionado.
