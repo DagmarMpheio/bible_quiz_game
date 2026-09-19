@@ -1,17 +1,15 @@
-## Direitos de Autor
+## Licença e direitos de autor
 
 Copyright © 2026 Eng. Dagmar Mpheio.
-
 Todos os direitos reservados.
 
-O código-fonte, design, estrutura, perguntas originais e documentação
-deste projecto não podem ser reproduzidos, distribuídos ou utilizados
-comercialmente sem autorização do titular dos direitos.
+Este repositório é público para fins de consulta, demonstração
+e acompanhamento do desenvolvimento.
 
-### Conteúdo bíblico
+**A disponibilização pública do código não significa que este projecto
+seja open source.**
 
-As referências bíblicas são utilizadas para fins educativos.
+Não é permitida a reprodução, modificação, distribuição ou utilização
+comercial do código sem autorização prévia e expressa do titular.
 
-Caso a aplicação apresente texto integral de uma tradução específica
-da Bíblia, aplicam-se também os direitos de autor e as condições de
-utilização definidas pelo respectivo editor ou titular.
+Consulte o ficheiro `LICENSE` para mais informações.
