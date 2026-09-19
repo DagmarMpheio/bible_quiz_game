@@ -1,11 +1,6 @@
 import 'package:bible_quiz_game/models/category_model.dart';
-import 'package:bible_quiz_game/screens/splash/splash_screen.dart';
 import 'package:go_router/go_router.dart';
-
-import '../../screens/categories/categories_screen.dart';
-import '../../screens/home/home_screen.dart';
-import '../../screens/quiz/quiz_screen.dart';
-import '../../screens/result/result_screen.dart';
+import '/screens/views.dart';
 
 /// Configuração central de navegação da aplicação.
 ///
@@ -64,9 +59,7 @@ final GoRouter appRouter = GoRouter(
         final category = QuizCategory.values.byName(categoryName);
 
         /// Abre o quiz já configurado com a categoria escolhida.
-        return QuizScreen(
-          category: category,
-        );
+        return QuizScreen(category: category);
       },
     ),
 
@@ -76,6 +69,15 @@ final GoRouter appRouter = GoRouter(
       name: ResultScreen.routeName,
       builder: (context, state) {
         return const ResultScreen();
+      },
+    ),
+
+    /// Tela utilizada para rever as respostas dadas durante o quiz.
+    GoRoute(
+      path: '/review-answers',
+      name: ReviewAnswersScreen.routeName,
+      builder: (context, state) {
+        return const ReviewAnswersScreen();
       },
     ),
   ],
