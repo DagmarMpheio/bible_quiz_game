@@ -177,7 +177,7 @@ class QuizNotifier extends Notifier<QuizState> {
   /// 2. obtém a pergunta actual;
   /// 3. verifica se a resposta está correta;
   /// 4. cria um registo para o histórico;
-  /// 5. atualiza a pontuação;
+  /// 5. actualiza a pontuação;
   /// 6. marca a pergunta como respondida.
   void answerQuestion(int answerIndex) {
     /// Impede que a mesma pergunta seja respondida novamente.
@@ -209,6 +209,7 @@ class QuizNotifier extends Notifier<QuizState> {
     state = QuizState(
       /// Mantém o identificador da sessão actual.
       sessionId: state.sessionId,
+
       /// Mantém a categoria seleccionada durante toda a sessão.
       category: state.category,
 
