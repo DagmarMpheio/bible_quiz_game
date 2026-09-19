@@ -56,6 +56,21 @@ class HomeScreen extends StatelessWidget {
                 icon: const Icon(Icons.play_arrow_rounded),
                 label: const Text('Começar Quiz'),
               ),
+
+              const SizedBox(height: 12),
+
+              /// Permite consultar informações sobre a aplicação,
+              /// autoria, copyright e licenciamento.
+              TextButton.icon(
+                onPressed: () {
+                  /// Utilizamos [pushNamed] para manter a Home na pilha
+                  /// de navegação e permitir regressar através do botão
+                  /// de voltar do ecrã "Sobre".
+                  context.pushNamed(AboutScreen.routeName);
+                },
+                icon: const Icon(Icons.info_outline_rounded),
+                label: const Text('Sobre'),
+              ),
             ],
           ),
         ),

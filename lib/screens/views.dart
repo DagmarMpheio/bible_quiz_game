@@ -25,3 +25,4 @@ export 'categories/categories_screen.dart';
 export 'difficulty/difficulty_screen.dart';
 export 'result/result_screen.dart';
 export 'review/review_answers_screen.dart';
+export 'about/about_screen.dart';

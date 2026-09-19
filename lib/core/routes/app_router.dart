@@ -99,5 +99,15 @@ final GoRouter appRouter = GoRouter(
         return const ReviewAnswersScreen();
       },
     ),
+
+    /// Rota responsável por apresentar informações institucionais
+    /// e legais relacionadas com a aplicação.
+    GoRoute(
+      path: '/about',
+      name: AboutScreen.routeName,
+      builder: (context, state) {
+        return const AboutScreen();
+      },
+    ),
   ],
 );
