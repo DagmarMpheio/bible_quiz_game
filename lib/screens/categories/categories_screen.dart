@@ -1,5 +1,5 @@
 import 'package:bible_quiz_game/models/category_model.dart';
-import 'package:bible_quiz_game/screens/quiz/quiz_screen.dart';
+import 'package:bible_quiz_game/screens/views.dart';
 import 'package:bible_quiz_game/widgets/category_card.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';

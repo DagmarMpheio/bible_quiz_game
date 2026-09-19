@@ -1,6 +1,4 @@
-import 'package:bible_quiz_game/screens/categories/categories_screen.dart';
-import 'package:bible_quiz_game/screens/home/home_screen.dart';
-import 'package:bible_quiz_game/screens/review/review_answers_screen.dart';
+import 'package:bible_quiz_game/screens/views.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
