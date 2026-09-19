@@ -10,27 +10,18 @@ class AppStrings {
   /// Nome oficial da aplicação.
   static const String appName = 'Quiz Bíblico';
 
-  /// Ano associado ao copyright da aplicação.
-  static const String copyrightYear = '2026';
-
-  /// Nome do proprietário dos direitos da aplicação.
+  //// Informação de autoria apresentada na aplicação.
   ///
-  /// Substituir pelo nome do autor, empresa ou entidade responsável
-  /// antes da publicação da aplicação.
-  static const String copyrightOwner = 'Eng. Dagmar Mpheio';
-
-  /// Aviso de copyright apresentado na aplicação.
+  /// O autor original permanece identificado mesmo quando o projecto
+  /// recebe contribuições de terceiros.
   static const String copyright =
-      'Copyright © $copyrightYear $copyrightOwner. '
-      'Todos os direitos reservados.';
+      'Copyright © 2026 Eng. Dagmar Mpheio e colaboradores.';
 
-  /// Informação relativa ao conteúdo bíblico utilizado.
-  ///
-  /// A aplicação utiliza referências bíblicas e conteúdos educativos.
-  /// Caso sejam utilizados textos integrais de uma tradução específica,
-  /// deverão ser respeitadas as respectivas condições de utilização.
-  static const String bibleCopyrightNotice =
-      'As referências bíblicas são apresentadas para fins educativos. '
-      'Os direitos relativos ao texto de cada tradução da Bíblia '
-      'pertencem aos respectivos titulares.';
+  /// Nome da licença utilizada pelo código-fonte do projecto.
+  static const String licenseName = 'Apache License 2.0';
+
+  /// Informação resumida sobre o licenciamento do software.
+  static const String licenseNotice =
+      'Este software é disponibilizado ao abrigo da '
+      'Apache License, Version 2.0.';
 }
