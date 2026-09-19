@@ -1,15 +1,35 @@
-## Licença e direitos de autor
+## Autoria
 
-Copyright © 2026 Eng. Dagmar Mpheio.
-Todos os direitos reservados.
+O Quiz Bíblico foi originalmente criado por **Eng. Dagmar Mpheio**.
 
-Este repositório é público para fins de consulta, demonstração
-e acompanhamento do desenvolvimento.
+O projecto é desenvolvido de forma aberta e aceita contribuições
+da comunidade.
 
-**A disponibilização pública do código não significa que este projecto
-seja open source.**
+## Contribuições
 
-Não é permitida a reprodução, modificação, distribuição ou utilização
-comercial do código sem autorização prévia e expressa do titular.
+Contribuições são bem-vindas através de Issues e Pull Requests.
 
-Consulte o ficheiro `LICENSE` para mais informações.
+Antes de contribuir, consulte o ficheiro
+[`CONTRIBUTING.md`](CONTRIBUTING.md).
+
+Ao submeter uma contribuição para este repositório, o contribuidor
+concorda que a sua contribuição seja disponibilizada ao abrigo da
+Apache License, Version 2.0.
+
+## Licença
+
+Este projecto está licenciado ao abrigo da
+**Apache License, Version 2.0**.
+
+Copyright © 2026 Eng. Dagmar Mpheio e colaboradores.
+
+Consulte o ficheiro [`LICENSE`](LICENSE) para os termos completos.
+
+## Conteúdo bíblico
+
+As referências bíblicas utilizadas pelo projecto destinam-se a fins
+educativos.
+
+Os direitos sobre o texto integral de traduções específicas da Bíblia
+pertencem aos respectivos titulares e não são abrangidos pela licença
+Apache 2.0 deste software.
