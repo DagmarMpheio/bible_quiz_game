@@ -7,7 +7,7 @@ import '../repositories/question_repository.dart';
 
 /// Provider responsável por disponibilizar o repositório de perguntas.
 ///
-/// Atualmente utiliza [LocalQuestionRepository], porém esta implementação
+/// Actualmente utiliza [LocalQuestionRepository], porém esta implementação
 /// poderá ser substituída futuramente por Hive CE, Firebase ou uma API.
 final questionRepositoryProvider = Provider<QuestionRepository>((ref) {
   return LocalQuestionRepository();
@@ -21,21 +21,21 @@ final questionRepositoryProvider = Provider<QuestionRepository>((ref) {
 /// O estado guarda:
 /// - categoria selecionada;
 /// - perguntas da sessão;
-/// - pergunta atual;
+/// - pergunta actual;
 /// - quantidade de acertos;
 /// - alternativa selecionada;
 /// - informação sobre a pergunta ter sido respondida;
 /// - histórico completo das respostas.
 class QuizState {
-  /// Categoria escolhida para o quiz atual.
+  /// Categoria escolhida para o quiz actual.
   ///
   /// Antes de um quiz ser iniciado, este valor será `null`.
   final QuizCategory? category;
 
-  /// Lista de perguntas utilizadas na sessão atual.
+  /// Lista de perguntas utilizadas na sessão actual.
   final List<QuestionModel> questions;
 
-  /// Índice da pergunta atualmente apresentada.
+  /// Índice da pergunta actualmente apresentada.
   ///
   /// O índice começa em zero.
   final int currentIndex;
@@ -43,18 +43,18 @@ class QuizState {
   /// Quantidade de perguntas respondidas corretamente.
   final int correctAnswers;
 
-  /// Índice da alternativa escolhida na pergunta atual.
+  /// Índice da alternativa escolhida na pergunta actual.
   ///
   /// Será `null` enquanto o utilizador ainda não tiver respondido.
   final int? selectedAnswer;
 
-  /// Indica se a pergunta atual já foi respondida.
+  /// Indica se a pergunta actual já foi respondida.
   ///
   /// Esta propriedade impede que o utilizador responda mais de uma
   /// vez à mesma pergunta.
   final bool answered;
 
-  /// Histórico das respostas dadas durante a sessão atual.
+  /// Histórico das respostas dadas durante a sessão actual.
   ///
   /// Cada elemento contém:
   /// - a pergunta;
@@ -75,11 +75,11 @@ class QuizState {
     this.answerHistory = const [],
   });
 
-  /// Retorna a pergunta atualmente apresentada.
+  /// Retorna a pergunta actualmente apresentada.
   ///
   /// Retorna `null` quando:
   /// - não existem perguntas carregadas;
-  /// - o índice atual ultrapassa o tamanho da lista.
+  /// - o índice actual ultrapassa o tamanho da lista.
   QuestionModel? get currentQuestion {
     if (questions.isEmpty || currentIndex >= questions.length) {
       return null;
@@ -88,7 +88,7 @@ class QuizState {
     return questions[currentIndex];
   }
 
-  /// Verifica se a pergunta atual é a última da sessão.
+  /// Verifica se a pergunta actual é a última da sessão.
   bool get isLastQuestion {
     if (questions.isEmpty) {
       return false;
@@ -133,7 +133,7 @@ class QuizNotifier extends Notifier<QuizState> {
   ///
   /// Este método:
   /// 1. verifica se a pergunta já foi respondida;
-  /// 2. obtém a pergunta atual;
+  /// 2. obtém a pergunta actual;
   /// 3. verifica se a resposta está correta;
   /// 4. cria um registo para o histórico;
   /// 5. atualiza a pontuação;
@@ -147,7 +147,7 @@ class QuizNotifier extends Notifier<QuizState> {
       return;
     }
 
-    /// Obtém a pergunta atualmente apresentada.
+    /// Obtém a pergunta actualmente apresentada.
     final question = state.currentQuestion;
 
     /// Caso não exista uma pergunta válida, interrompe a operação.
@@ -177,11 +177,11 @@ class QuizNotifier extends Notifier<QuizState> {
       /// destaque visualmente a resposta.
       selectedAnswer: answerIndex,
 
-      /// Marca a pergunta atual como respondida.
+      /// Marca a pergunta actual como respondida.
       answered: true,
 
       /// Cria uma nova lista contendo todas as respostas anteriores
-      /// mais a resposta atual.
+      /// mais a resposta actual.
       ///
       /// Como o estado é imutável, não modificamos diretamente a lista
       /// existente.
@@ -192,8 +192,8 @@ class QuizNotifier extends Notifier<QuizState> {
   /// Avança para a próxima pergunta.
   ///
   /// Só é possível avançar se:
-  /// - a pergunta atual já tiver sido respondida;
-  /// - a pergunta atual não for a última.
+  /// - a pergunta actual já tiver sido respondida;
+  /// - a pergunta actual não for a última.
   void nextQuestion() {
     /// Impede o avanço indevido.
     if (!state.answered || state.isLastQuestion) {

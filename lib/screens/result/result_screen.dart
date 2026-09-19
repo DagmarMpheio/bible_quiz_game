@@ -49,7 +49,7 @@ class ResultScreen extends ConsumerWidget {
   /// Constrói a interface da tela de resultado.
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    /// Observa o estado atual do quiz.
+    /// Observa o estado actual do quiz.
     final quiz = ref.watch(quizProvider);
 
     /// Quantidade total de perguntas da sessão.
@@ -117,7 +117,7 @@ class ResultScreen extends ConsumerWidget {
 
               const SizedBox(height: 12),
 
-              /// Reinicia o estado atual e leva o utilizador novamente
+              /// Reinicia o estado actual e leva o utilizador novamente
               /// para a seleção de categorias.
               ElevatedButton(
                 onPressed: () {
@@ -130,7 +130,7 @@ class ResultScreen extends ConsumerWidget {
 
               const SizedBox(height: 12),
 
-              /// Limpa o quiz atual e regressa à Home.
+              /// Limpa o quiz actual e regressa à Home.
               TextButton(
                 onPressed: () {
                   ref.read(quizProvider.notifier).resetQuiz();

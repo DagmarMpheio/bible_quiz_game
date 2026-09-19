@@ -25,7 +25,7 @@ class ReviewAnswersScreen extends ConsumerWidget {
   /// Constrói a interface da tela de revisão.
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    /// Obtém o estado atual do quiz.
+    /// Obtém o estado actual do quiz.
     final quiz = ref.watch(quizProvider);
 
     /// Recupera o histórico completo das respostas.
@@ -52,7 +52,7 @@ class ReviewAnswersScreen extends ConsumerWidget {
               },
 
               itemBuilder: (context, index) {
-                /// Obtém a resposta correspondente à posição atual.
+                /// Obtém a resposta correspondente à posição actual.
                 final answer = answers[index];
 
                 /// Obtém a pergunta associada à resposta.

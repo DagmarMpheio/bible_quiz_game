@@ -14,7 +14,7 @@ class CategoryCard extends StatelessWidget {
   /// Ícone visual associado à categoria.
   final IconData icon;
 
-  /// Ação executada quando o card é pressionado.
+  /// Acção executada quando o card é pressionado.
   final VoidCallback onTap;
 
   const CategoryCard({

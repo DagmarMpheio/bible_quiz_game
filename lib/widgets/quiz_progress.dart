@@ -10,7 +10,7 @@ import '../core/constants/app_colors.dart';
 /// - a percentagem correspondente;
 /// - uma barra de progresso visual.
 class QuizProgress extends StatelessWidget {
-  /// Número da pergunta atualmente apresentada.
+  /// Número da pergunta actualmente apresentada.
   ///
   /// Para a interface, este valor normalmente começa em `1`.
   final int currentQuestion;

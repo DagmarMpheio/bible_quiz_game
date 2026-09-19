@@ -72,7 +72,7 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
     /// Observa o estado. Sempre que ele for alterado, a tela é reconstruída.
     final quiz = ref.watch(quizProvider);
 
-    /// Obtém a pergunta atualmente selecionada pelo estado.
+    /// Obtém a pergunta actualmente selecionada pelo estado.
     final question = quiz.currentQuestion;
 
     /// Enquanto não existir uma pergunta disponível, mostra carregamento.

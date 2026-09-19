@@ -4,7 +4,7 @@ import 'package:bible_quiz_game/models/question_model.dart';
 /// Define o contrato responsável por fornecer perguntas ao quiz.
 ///
 /// Esta abstração desacopla a interface e a lógica do quiz da origem real dos
-/// dados. Atualmente as perguntas são locais, mas futuramente esta interface
+/// dados. Actualmente as perguntas são locais, mas futuramente esta interface
 /// poderá ser implementada por Hive CE, Firebase ou uma API sem alterar as
 /// telas que consomem o repositório.
 abstract class QuestionRepository {

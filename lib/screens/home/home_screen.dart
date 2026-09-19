@@ -48,7 +48,7 @@ class HomeScreen extends StatelessWidget {
 
               const SizedBox(height: 48),
 
-              /// Ação principal que encaminha o utilizador às categorias.
+              /// Acção principal que encaminha o utilizador às categorias.
               ElevatedButton.icon(
                 onPressed: () {
                   context.goNamed(CategoriesScreen.routeName);
