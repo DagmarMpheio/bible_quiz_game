@@ -15,7 +15,7 @@ class AppStrings {
   /// Mesmo que outros programadores contribuam futuramente,
   /// a autoria original do projecto permanece identificada.
   static const String originalAuthor =
-      'Eng.Dagmar Mpheio';
+      'Eng. Dagmar Mpheio';
 
   /// Ano em que o projecto foi criado/publicado.
   static const String copyrightYear =

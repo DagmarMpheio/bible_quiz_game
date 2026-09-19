@@ -1,0 +1,10 @@
+Distribuição do base de dados de perguntas
+
+antigoTestamento: Fácil=7, Médio=7, Difícil=6, Total=20
+novoTestamento: Fácil=7, Médio=7, Difícil=6, Total=20
+jesusCristo: Fácil=7, Médio=7, Difícil=6, Total=20
+personagens: Fácil=7, Médio=7, Difícil=6, Total=20
+reisEProfetas: Fácil=7, Médio=7, Difícil=6, Total=20
+livrosDaBiblia: Fácil=7, Médio=7, Difícil=6, Total=20
+
+Total geral: 120

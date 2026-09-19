@@ -1,16 +1,81 @@
 [
   {
-    "id": "1",
+    "id": "at-f-001",
     "question": "Quem construiu a arca?",
     "options": ["Abraão", "Moisés", "Noé", "Davi"],
     "correctAnswerIndex": 2,
     "category": "antigoTestamento",
     "difficulty": "facil",
-    "explanation": "Deus ordenou a Noé que construísse uma arca para sobreviver ao dilúvio.",
+    "explanation": "Deus ordenou a Noé que construísse uma arca antes do dilúvio.",
     "bibleReference": "Génesis 6:14"
   },
   {
-    "id": "2",
+    "id": "at-f-002",
+    "question": "Quem recebeu os Dez Mandamentos no monte Sinai?",
+    "options": ["Josué", "Moisés", "Arão", "Abraão"],
+    "correctAnswerIndex": 1,
+    "category": "antigoTestamento",
+    "difficulty": "facil",
+    "explanation": "Moisés recebeu de Deus as tábuas do testemunho no monte Sinai.",
+    "bibleReference": "Êxodo 31:18"
+  },
+  {
+    "id": "at-f-003",
+    "question": "Qual foi o primeiro homem, segundo o livro de Génesis?",
+    "options": ["Adão", "Noé", "Abraão", "Caim"],
+    "correctAnswerIndex": 0,
+    "category": "antigoTestamento",
+    "difficulty": "facil",
+    "explanation": "Génesis apresenta Adão como o primeiro homem.",
+    "bibleReference": "Génesis 2:7"
+  },
+  {
+    "id": "at-f-004",
+    "question": "Qual foi a primeira mulher, segundo o livro de Génesis?",
+    "options": ["Sara", "Eva", "Rebeca", "Raquel"],
+    "correctAnswerIndex": 1,
+    "category": "antigoTestamento",
+    "difficulty": "facil",
+    "explanation": "Eva foi formada por Deus e apresentada a Adão.",
+    "bibleReference": "Génesis 2:21-23"
+  },
+  {
+    "id": "at-f-005",
+    "question": "Que mar se abriu diante dos israelitas durante a saída do Egipto?",
+    "options": [
+      "Mar Morto",
+      "Mar da Galileia",
+      "Mar Vermelho",
+      "Mar Mediterrâneo"
+    ],
+    "correctAnswerIndex": 2,
+    "category": "antigoTestamento",
+    "difficulty": "facil",
+    "explanation": "Os israelitas atravessaram o mar depois de Deus abrir caminho pelas águas.",
+    "bibleReference": "Êxodo 14:21-22"
+  },
+  {
+    "id": "at-f-006",
+    "question": "Quem foi engolido por um grande peixe?",
+    "options": ["Jonas", "Elias", "Isaías", "Jeremias"],
+    "correctAnswerIndex": 0,
+    "category": "antigoTestamento",
+    "difficulty": "facil",
+    "explanation": "Jonas foi engolido por um grande peixe depois de ter sido lançado ao mar.",
+    "bibleReference": "Jonas 1:17"
+  },
+  {
+    "id": "at-f-007",
+    "question": "Que alimento caiu do céu para sustentar Israel no deserto?",
+    "options": ["Codornizes", "Maná", "Pão de cevada", "Figos"],
+    "correctAnswerIndex": 1,
+    "category": "antigoTestamento",
+    "difficulty": "facil",
+    "explanation": "O povo chamou maná ao alimento que Deus lhes forneceu no deserto.",
+    "bibleReference": "Êxodo 16:14-15,31"
+  },
+  {
+    "id": "at-m-001",
     "question": "Quem foi vendido pelos seus irmãos e levado para o Egipto?",
     "options": ["José", "Benjamim", "Levi", "Judá"],
     "correctAnswerIndex": 0,
@@ -20,28 +85,198 @@
     "bibleReference": "Génesis 37:28"
   },
   {
-    "id": "3",
+    "id": "at-m-002",
+    "question": "Quem sucedeu a Moisés na liderança de Israel?",
+    "options": ["Calebe", "Josué", "Arão", "Samuel"],
+    "correctAnswerIndex": 1,
+    "category": "antigoTestamento",
+    "difficulty": "medio",
+    "explanation": "Josué foi designado para conduzir o povo depois da morte de Moisés.",
+    "bibleReference": "Josué 1:1-2"
+  },
+  {
+    "id": "at-m-003",
+    "question": "Que cidade viu as suas muralhas cair depois de Israel marchar ao seu redor?",
+    "options": ["Jerusalém", "Ai", "Jericó", "Hebrom"],
+    "correctAnswerIndex": 2,
+    "category": "antigoTestamento",
+    "difficulty": "medio",
+    "explanation": "As muralhas de Jericó caíram depois de Israel cumprir as instruções recebidas.",
+    "bibleReference": "Josué 6:20"
+  },
+  {
+    "id": "at-m-004",
+    "question": "Quem pediu a Deus um sinal envolvendo um velo de lã?",
+    "options": ["Sansão", "Gideão", "Jefté", "Baraque"],
+    "correctAnswerIndex": 1,
+    "category": "antigoTestamento",
+    "difficulty": "medio",
+    "explanation": "Gideão pediu sinais a Deus utilizando um velo de lã.",
+    "bibleReference": "Juízes 6:36-40"
+  },
+  {
+    "id": "at-m-005",
+    "question": "Qual era o nome da mãe de Samuel?",
+    "options": ["Ana", "Rute", "Mical", "Abigail"],
+    "correctAnswerIndex": 0,
+    "category": "antigoTestamento",
+    "difficulty": "medio",
+    "explanation": "Ana pediu um filho ao Senhor e depois dedicou Samuel ao serviço de Deus.",
+    "bibleReference": "1 Samuel 1:20,27-28"
+  },
+  {
+    "id": "at-m-006",
+    "question": "Quem lutou durante a noite e recebeu depois o nome Israel?",
+    "options": ["Isaac", "Jacó", "Esaú", "José"],
+    "correctAnswerIndex": 1,
+    "category": "antigoTestamento",
+    "difficulty": "medio",
+    "explanation": "Depois da luta, Jacó recebeu o nome Israel.",
+    "bibleReference": "Génesis 32:24-28"
+  },
+  {
+    "id": "at-m-007",
+    "question": "Quem liderou a reconstrução dos muros de Jerusalém depois do exílio?",
+    "options": ["Esdras", "Neemias", "Zorobabel", "Ageu"],
+    "correctAnswerIndex": 1,
+    "category": "antigoTestamento",
+    "difficulty": "medio",
+    "explanation": "Neemias liderou a reconstrução dos muros de Jerusalém.",
+    "bibleReference": "Neemias 2:17-18"
+  },
+  {
+    "id": "at-d-001",
     "question": "Quem encontrou o Livro da Lei no templo durante o reinado de Josias?",
     "options": ["Safã", "Hilquias", "Jeremias", "Esdras"],
     "correctAnswerIndex": 1,
     "category": "antigoTestamento",
     "difficulty": "dificil",
-    "explanation": "O sumo sacerdote Hilquias encontrou o Livro da Lei no templo.",
+    "explanation": "O sacerdote Hilquias encontrou o Livro da Lei no templo.",
     "bibleReference": "2 Reis 22:8"
   },
   {
-    "id": "4",
+    "id": "at-d-002",
+    "question": "Que juiz de Israel fez um voto precipitado antes de combater os amonitas?",
+    "options": ["Gideão", "Jefté", "Sansão", "Otniel"],
+    "correctAnswerIndex": 1,
+    "category": "antigoTestamento",
+    "difficulty": "dificil",
+    "explanation": "Jefté fez um voto antes de partir para a batalha contra os amonitas.",
+    "bibleReference": "Juízes 11:30-31"
+  },
+  {
+    "id": "at-d-003",
+    "question": "Que rei de Salém abençoou Abraão?",
+    "options": ["Abimeleque", "Melquisedeque", "Quedorlaomer", "Bera"],
+    "correctAnswerIndex": 1,
+    "category": "antigoTestamento",
+    "difficulty": "dificil",
+    "explanation": "Melquisedeque, rei de Salém e sacerdote do Deus Altíssimo, abençoou Abraão.",
+    "bibleReference": "Génesis 14:18-20"
+  },
+  {
+    "id": "at-d-004",
+    "question": "Quem era o pai de Bezalel, artesão escolhido para trabalhar no tabernáculo?",
+    "options": ["Uri", "Hur", "Arão", "Eleazar"],
+    "correctAnswerIndex": 0,
+    "category": "antigoTestamento",
+    "difficulty": "dificil",
+    "explanation": "Bezalel era filho de Uri, filho de Hur, da tribo de Judá.",
+    "bibleReference": "Êxodo 31:2"
+  },
+  {
+    "id": "at-d-005",
+    "question": "Qual era o nome do lugar associado ao juramento entre Abraão e Abimeleque?",
+    "options": ["Beer-Laai-Roi", "Berseba", "Siquém", "Betel"],
+    "correctAnswerIndex": 1,
+    "category": "antigoTestamento",
+    "difficulty": "dificil",
+    "explanation": "O lugar recebeu o nome Berseba por causa do juramento ali realizado.",
+    "bibleReference": "Génesis 21:31"
+  },
+  {
+    "id": "at-d-006",
+    "question": "Quem matou Sísera com uma estaca da tenda?",
+    "options": ["Débora", "Jael", "Acsa", "Mical"],
+    "correctAnswerIndex": 1,
+    "category": "antigoTestamento",
+    "difficulty": "dificil",
+    "explanation": "Jael matou Sísera enquanto ele dormia na sua tenda.",
+    "bibleReference": "Juízes 4:21"
+  },
+  {
+    "id": "nt-f-001",
     "question": "Quantos apóstolos Jesus escolheu?",
     "options": ["7", "10", "12", "14"],
     "correctAnswerIndex": 2,
     "category": "novoTestamento",
     "difficulty": "facil",
-    "explanation": "Jesus escolheu doze discípulos, aos quais chamou apóstolos.",
+    "explanation": "Jesus escolheu doze discípulos e chamou-lhes apóstolos.",
     "bibleReference": "Lucas 6:13"
   },
   {
-    "id": "5",
-    "question": "Quem foi escolhido para substituir Judas Iscariotes?",
+    "id": "nt-f-002",
+    "question": "Quem escreveu várias cartas presentes no Novo Testamento?",
+    "options": ["Paulo", "Pedro", "Tiago", "João Baptista"],
+    "correctAnswerIndex": 0,
+    "category": "novoTestamento",
+    "difficulty": "facil",
+    "explanation": "Várias cartas do Novo Testamento identificam Paulo como autor.",
+    "bibleReference": "Romanos 1:1; 1 Coríntios 1:1"
+  },
+  {
+    "id": "nt-f-003",
+    "question": "Em que livro se encontra o relato do Pentecostes?",
+    "options": ["Mateus", "Actos", "Romanos", "Hebreus"],
+    "correctAnswerIndex": 1,
+    "category": "novoTestamento",
+    "difficulty": "facil",
+    "explanation": "O derramamento do Espírito Santo no Pentecostes é narrado em Actos.",
+    "bibleReference": "Actos 2:1-4"
+  },
+  {
+    "id": "nt-f-004",
+    "question": "Quem baptizou o eunuco etíope?",
+    "options": ["Pedro", "Filipe", "Paulo", "Barnabé"],
+    "correctAnswerIndex": 1,
+    "category": "novoTestamento",
+    "difficulty": "facil",
+    "explanation": "Filipe explicou as Escrituras ao eunuco e depois baptizou-o.",
+    "bibleReference": "Actos 8:35-38"
+  },
+  {
+    "id": "nt-f-005",
+    "question": "Quem era o cobrador de impostos que subiu a uma árvore para ver Jesus?",
+    "options": ["Mateus", "Zaqueu", "Bartimeu", "Nicodemos"],
+    "correctAnswerIndex": 1,
+    "category": "novoTestamento",
+    "difficulty": "facil",
+    "explanation": "Zaqueu subiu a um sicómoro para conseguir ver Jesus.",
+    "bibleReference": "Lucas 19:2-4"
+  },
+  {
+    "id": "nt-f-006",
+    "question": "Quem negou Jesus três vezes?",
+    "options": ["João", "Pedro", "André", "Tomé"],
+    "correctAnswerIndex": 1,
+    "category": "novoTestamento",
+    "difficulty": "facil",
+    "explanation": "Pedro negou conhecer Jesus três vezes antes de o galo cantar.",
+    "bibleReference": "Lucas 22:54-62"
+  },
+  {
+    "id": "nt-f-007",
+    "question": "Quem foi o primeiro mártir cristão mencionado no livro de Actos?",
+    "options": ["Tiago", "Estêvão", "Barnabé", "Silas"],
+    "correctAnswerIndex": 1,
+    "category": "novoTestamento",
+    "difficulty": "facil",
+    "explanation": "Estêvão foi apedrejado depois do seu discurso perante o conselho.",
+    "bibleReference": "Actos 7:54-60"
+  },
+  {
+    "id": "nt-m-001",
+    "question": "Quem foi escolhido para substituir Judas Iscariotes entre os Doze?",
     "options": ["Barnabé", "Matias", "Silas", "Estêvão"],
     "correctAnswerIndex": 1,
     "category": "novoTestamento",
@@ -50,8 +285,78 @@
     "bibleReference": "Actos 1:26"
   },
   {
-    "id": "6",
-    "question": "Em que porta do templo Pedro e João encontraram um homem coxo?",
+    "id": "nt-m-002",
+    "question": "Quem estava preso com Paulo em Filipos quando ambos cantavam hinos?",
+    "options": ["Timóteo", "Silas", "Lucas", "Barnabé"],
+    "correctAnswerIndex": 1,
+    "category": "novoTestamento",
+    "difficulty": "medio",
+    "explanation": "Paulo e Silas estavam presos em Filipos e cantavam hinos a Deus.",
+    "bibleReference": "Actos 16:23-25"
+  },
+  {
+    "id": "nt-m-003",
+    "question": "Qual casal morreu depois de mentir acerca do valor de uma propriedade?",
+    "options": [
+      "Áquila e Priscila",
+      "Ananias e Safira",
+      "Félix e Drusila",
+      "Herodes e Herodias"
+    ],
+    "correctAnswerIndex": 1,
+    "category": "novoTestamento",
+    "difficulty": "medio",
+    "explanation": "Ananias e Safira mentiram acerca do valor entregue depois da venda de uma propriedade.",
+    "bibleReference": "Actos 5:1-10"
+  },
+  {
+    "id": "nt-m-004",
+    "question": "Quem abriu a sua casa a Paulo em Filipos depois de ser baptizada?",
+    "options": ["Lídia", "Dorcas", "Priscila", "Febe"],
+    "correctAnswerIndex": 0,
+    "category": "novoTestamento",
+    "difficulty": "medio",
+    "explanation": "Lídia foi baptizada e convidou Paulo e os seus companheiros a ficar em sua casa.",
+    "bibleReference": "Actos 16:14-15"
+  },
+  {
+    "id": "nt-m-005",
+    "question": "Em que cidade os discípulos foram chamados cristãos pela primeira vez?",
+    "options": ["Jerusalém", "Antioquia", "Corinto", "Éfeso"],
+    "correctAnswerIndex": 1,
+    "category": "novoTestamento",
+    "difficulty": "medio",
+    "explanation": "Foi em Antioquia que os discípulos foram chamados cristãos pela primeira vez.",
+    "bibleReference": "Actos 11:26"
+  },
+  {
+    "id": "nt-m-006",
+    "question": "Quem adormeceu durante um longo discurso de Paulo e caiu de uma janela?",
+    "options": ["Trófimo", "Êutico", "Aristarco", "Tíquico"],
+    "correctAnswerIndex": 1,
+    "category": "novoTestamento",
+    "difficulty": "medio",
+    "explanation": "Êutico caiu do terceiro andar enquanto Paulo falava prolongadamente.",
+    "bibleReference": "Actos 20:9-12"
+  },
+  {
+    "id": "nt-m-007",
+    "question": "Que casal explicou com maior exactidão o caminho de Deus a Apolo?",
+    "options": [
+      "Ananias e Safira",
+      "Áquila e Priscila",
+      "Félix e Drusila",
+      "Zacarias e Isabel"
+    ],
+    "correctAnswerIndex": 1,
+    "category": "novoTestamento",
+    "difficulty": "medio",
+    "explanation": "Priscila e Áquila explicaram a Apolo o caminho de Deus com maior exactidão.",
+    "bibleReference": "Actos 18:24-26"
+  },
+  {
+    "id": "nt-d-001",
+    "question": "Em que porta do templo Pedro e João encontraram um homem coxo de nascença?",
     "options": [
       "Porta Formosa",
       "Porta das Ovelhas",
@@ -61,11 +366,61 @@
     "correctAnswerIndex": 0,
     "category": "novoTestamento",
     "difficulty": "dificil",
-    "explanation": "O homem era colocado diariamente junto à porta do templo chamada Formosa.",
+    "explanation": "O homem era colocado junto à porta do templo chamada Formosa.",
     "bibleReference": "Actos 3:2"
   },
   {
-    "id": "7",
+    "id": "nt-d-002",
+    "question": "Qual era o nome do homem que tentou comprar dos apóstolos o poder de conceder o Espírito Santo?",
+    "options": ["Elimas", "Simão", "Demétrio", "Alexandre"],
+    "correctAnswerIndex": 1,
+    "category": "novoTestamento",
+    "difficulty": "dificil",
+    "explanation": "Simão ofereceu dinheiro aos apóstolos para obter essa autoridade.",
+    "bibleReference": "Actos 8:18-24"
+  },
+  {
+    "id": "nt-d-003",
+    "question": "Qual procônsul de Chipre ouviu Paulo e Barnabé?",
+    "options": ["Félix", "Sérgio Paulo", "Gálio", "Festo"],
+    "correctAnswerIndex": 1,
+    "category": "novoTestamento",
+    "difficulty": "dificil",
+    "explanation": "Sérgio Paulo, procônsul de Chipre, mandou chamar Barnabé e Saulo.",
+    "bibleReference": "Actos 13:7"
+  },
+  {
+    "id": "nt-d-004",
+    "question": "Quem era o orador que apresentou acusações contra Paulo perante Félix?",
+    "options": ["Tértulo", "Alexandre", "Demétrio", "Ananias"],
+    "correctAnswerIndex": 0,
+    "category": "novoTestamento",
+    "difficulty": "dificil",
+    "explanation": "Tértulo apresentou formalmente as acusações contra Paulo perante o governador Félix.",
+    "bibleReference": "Actos 24:1-2"
+  },
+  {
+    "id": "nt-d-005",
+    "question": "Em que ilha Paulo sofreu um naufrágio e foi mordido por uma víbora?",
+    "options": ["Creta", "Malta", "Chipre", "Patmos"],
+    "correctAnswerIndex": 1,
+    "category": "novoTestamento",
+    "difficulty": "dificil",
+    "explanation": "Depois do naufrágio, os sobreviventes souberam que a ilha se chamava Malta.",
+    "bibleReference": "Actos 28:1-5"
+  },
+  {
+    "id": "nt-d-006",
+    "question": "Que artesão provocou um tumulto em Éfeso por causa da pregação de Paulo?",
+    "options": ["Alexandre", "Demétrio", "Trófimo", "Gaio"],
+    "correctAnswerIndex": 1,
+    "category": "novoTestamento",
+    "difficulty": "dificil",
+    "explanation": "Demétrio, ourives, receava que a pregação de Paulo prejudicasse o seu negócio ligado ao culto de Ártemis.",
+    "bibleReference": "Actos 19:23-28"
+  },
+  {
+    "id": "jc-f-001",
     "question": "Em que cidade nasceu Jesus?",
     "options": ["Jerusalém", "Nazaré", "Belém", "Cafarnaum"],
     "correctAnswerIndex": 2,
@@ -75,8 +430,73 @@
     "bibleReference": "Mateus 2:1"
   },
   {
-    "id": "8",
-    "question": "Onde realizou Jesus o seu primeiro sinal relatado no Evangelho de João?",
+    "id": "jc-f-002",
+    "question": "Quem baptizou Jesus?",
+    "options": ["Pedro", "João Baptista", "André", "Zacarias"],
+    "correctAnswerIndex": 1,
+    "category": "jesusCristo",
+    "difficulty": "facil",
+    "explanation": "Jesus foi baptizado por João no rio Jordão.",
+    "bibleReference": "Mateus 3:13-17"
+  },
+  {
+    "id": "jc-f-003",
+    "question": "Quantos dias Jesus jejuou no deserto?",
+    "options": ["7", "20", "30", "40"],
+    "correctAnswerIndex": 3,
+    "category": "jesusCristo",
+    "difficulty": "facil",
+    "explanation": "Jesus jejuou quarenta dias e quarenta noites.",
+    "bibleReference": "Mateus 4:2"
+  },
+  {
+    "id": "jc-f-004",
+    "question": "Quem traiu Jesus?",
+    "options": ["Pedro", "Tomé", "Judas Iscariotes", "Mateus"],
+    "correctAnswerIndex": 2,
+    "category": "jesusCristo",
+    "difficulty": "facil",
+    "explanation": "Judas Iscariotes entregou Jesus às autoridades.",
+    "bibleReference": "Mateus 26:14-16"
+  },
+  {
+    "id": "jc-f-005",
+    "question": "Quem pediu o corpo de Jesus a Pilatos depois da crucificação?",
+    "options": ["Nicodemos", "José de Arimateia", "Pedro", "João"],
+    "correctAnswerIndex": 1,
+    "category": "jesusCristo",
+    "difficulty": "facil",
+    "explanation": "José de Arimateia pediu a Pilatos o corpo de Jesus.",
+    "bibleReference": "Mateus 27:57-58"
+  },
+  {
+    "id": "jc-f-006",
+    "question": "Segundo os Evangelhos, em que momento Jesus ressuscitou?",
+    "options": [
+      "No mesmo dia",
+      "Ao segundo dia",
+      "Ao terceiro dia",
+      "Ao sétimo dia"
+    ],
+    "correctAnswerIndex": 2,
+    "category": "jesusCristo",
+    "difficulty": "facil",
+    "explanation": "Os Evangelhos apresentam a ressurreição de Jesus ao terceiro dia.",
+    "bibleReference": "Lucas 24:6-7"
+  },
+  {
+    "id": "jc-f-007",
+    "question": "Qual oração Jesus ensinou aos discípulos como modelo?",
+    "options": ["Cântico de Simeão", "Pai Nosso", "Magnificat", "Salmo 23"],
+    "correctAnswerIndex": 1,
+    "category": "jesusCristo",
+    "difficulty": "facil",
+    "explanation": "Jesus ensinou aos discípulos uma oração que começa por dirigir-se ao Pai.",
+    "bibleReference": "Mateus 6:9-13"
+  },
+  {
+    "id": "jc-m-001",
+    "question": "Onde realizou Jesus o primeiro sinal relatado no Evangelho de João?",
     "options": ["Jerusalém", "Caná da Galileia", "Belém", "Betânia"],
     "correctAnswerIndex": 1,
     "category": "jesusCristo",
@@ -85,17 +505,142 @@
     "bibleReference": "João 2:1-11"
   },
   {
-    "id": "9",
-    "question": "Que expressão disse Jesus à filha de Jairo antes de ela se levantar?",
+    "id": "jc-m-002",
+    "question": "Que discípulo caminhou sobre as águas em direcção a Jesus?",
+    "options": ["João", "Pedro", "André", "Filipe"],
+    "correctAnswerIndex": 1,
+    "category": "jesusCristo",
+    "difficulty": "medio",
+    "explanation": "Pedro saiu do barco e caminhou sobre as águas em direcção a Jesus.",
+    "bibleReference": "Mateus 14:28-29"
+  },
+  {
+    "id": "jc-m-003",
+    "question": "Quem ajudou a transportar a cruz de Jesus?",
+    "options": [
+      "José de Arimateia",
+      "Simão de Cirene",
+      "Nicodemos",
+      "Bartimeu"
+    ],
+    "correctAnswerIndex": 1,
+    "category": "jesusCristo",
+    "difficulty": "medio",
+    "explanation": "Simão de Cirene foi obrigado a levar a cruz de Jesus.",
+    "bibleReference": "Marcos 15:21"
+  },
+  {
+    "id": "jc-m-004",
+    "question": "Quem procurou Jesus de noite para conversar com Ele?",
+    "options": ["Nicodemos", "Zaqueu", "Jairo", "Gamaliel"],
+    "correctAnswerIndex": 0,
+    "category": "jesusCristo",
+    "difficulty": "medio",
+    "explanation": "Nicodemos, fariseu e dirigente dos judeus, foi ter com Jesus de noite.",
+    "bibleReference": "João 3:1-2"
+  },
+  {
+    "id": "jc-m-005",
+    "question": "Qual era o nome do homem cuja orelha foi cortada durante a prisão de Jesus?",
+    "options": ["Malco", "Bartimeu", "Lázaro", "Jairo"],
+    "correctAnswerIndex": 0,
+    "category": "jesusCristo",
+    "difficulty": "medio",
+    "explanation": "João identifica o servo do sumo sacerdote como Malco.",
+    "bibleReference": "João 18:10"
+  },
+  {
+    "id": "jc-m-006",
+    "question": "Quem Jesus chamou para fora do túmulo em Betânia?",
+    "options": ["Jairo", "Lázaro", "Bartimeu", "Estêvão"],
+    "correctAnswerIndex": 1,
+    "category": "jesusCristo",
+    "difficulty": "medio",
+    "explanation": "Jesus chamou Lázaro para fora do túmulo.",
+    "bibleReference": "João 11:43-44"
+  },
+  {
+    "id": "jc-m-007",
+    "question": "Que profissão exercia Mateus quando Jesus o chamou?",
+    "options": ["Pescador", "Carpinteiro", "Cobrador de impostos", "Escriba"],
+    "correctAnswerIndex": 2,
+    "category": "jesusCristo",
+    "difficulty": "medio",
+    "explanation": "Mateus estava sentado na colectoria quando Jesus o chamou.",
+    "bibleReference": "Mateus 9:9"
+  },
+  {
+    "id": "jc-d-001",
+    "question": "Que expressão aramaica Jesus disse à filha de Jairo antes de ela se levantar?",
     "options": ["Efatá", "Talita cumi", "Eli, Eli", "Hosana"],
     "correctAnswerIndex": 1,
     "category": "jesusCristo",
     "difficulty": "dificil",
-    "explanation": "Jesus tomou a menina pela mão e disse-lhe: Talita cumi.",
+    "explanation": "Marcos regista a expressão «Talita cumi» quando Jesus toma a menina pela mão.",
     "bibleReference": "Marcos 5:41"
   },
   {
-    "id": "10",
+    "id": "jc-d-002",
+    "question": "Que nome recebeu o campo associado ao dinheiro da traição de Judas?",
+    "options": ["Gólgota", "Aceldama", "Getsémani", "Gábata"],
+    "correctAnswerIndex": 1,
+    "category": "jesusCristo",
+    "difficulty": "dificil",
+    "explanation": "O campo ficou conhecido como Aceldama, isto é, Campo de Sangue.",
+    "bibleReference": "Actos 1:18-19"
+  },
+  {
+    "id": "jc-d-003",
+    "question": "Que aldeia era a terra de Marta, Maria e Lázaro?",
+    "options": ["Emaús", "Betânia", "Caná", "Naim"],
+    "correctAnswerIndex": 1,
+    "category": "jesusCristo",
+    "difficulty": "dificil",
+    "explanation": "Lázaro e as suas irmãs viviam em Betânia.",
+    "bibleReference": "João 11:1"
+  },
+  {
+    "id": "jc-d-004",
+    "question": "Qual discípulo era conhecido como Dídimo?",
+    "options": ["Tomé", "Filipe", "Bartolomeu", "André"],
+    "correctAnswerIndex": 0,
+    "category": "jesusCristo",
+    "difficulty": "dificil",
+    "explanation": "João identifica Tomé como aquele a quem chamavam Dídimo.",
+    "bibleReference": "João 11:16"
+  },
+  {
+    "id": "jc-d-005",
+    "question": "Qual era o nome hebraico do lugar onde Pilatos se sentou no tribunal ao julgar Jesus?",
+    "options": ["Gólgota", "Gábata", "Betesda", "Siloé"],
+    "correctAnswerIndex": 1,
+    "category": "jesusCristo",
+    "difficulty": "dificil",
+    "explanation": "João identifica o lugar do tribunal como Litóstrotos, em hebraico Gábata.",
+    "bibleReference": "João 19:13"
+  },
+  {
+    "id": "jc-d-006",
+    "question": "Que moeda Jesus pediu que lhe mostrassem ao responder sobre o tributo a César?",
+    "options": ["Dracma", "Denário", "Siclo", "Mina"],
+    "correctAnswerIndex": 1,
+    "category": "jesusCristo",
+    "difficulty": "dificil",
+    "explanation": "Jesus pediu que lhe mostrassem um denário ao responder sobre o tributo.",
+    "bibleReference": "Lucas 20:24"
+  },
+  {
+    "id": "pb-f-001",
+    "question": "Quem derrotou Golias?",
+    "options": ["Saul", "Davi", "Samuel", "Salomão"],
+    "correctAnswerIndex": 1,
+    "category": "personagens",
+    "difficulty": "facil",
+    "explanation": "Davi derrotou Golias com uma funda e uma pedra.",
+    "bibleReference": "1 Samuel 17:49-50"
+  },
+  {
+    "id": "pb-f-002",
     "question": "Quem foi lançado na cova dos leões?",
     "options": ["Daniel", "Elias", "Isaías", "Jeremias"],
     "correctAnswerIndex": 0,
@@ -105,27 +650,187 @@
     "bibleReference": "Daniel 6:16"
   },
   {
-    "id": "11",
-    "question": "Quem interpretou o sonho do rei Nabucodonosor?",
-    "options": ["José", "Daniel", "Ezequiel", "Jeremias"],
+    "id": "pb-f-003",
+    "question": "Quem era conhecido pela sua grande força física?",
+    "options": ["Samuel", "Sansão", "Elias", "Josué"],
+    "correctAnswerIndex": 1,
+    "category": "personagens",
+    "difficulty": "facil",
+    "explanation": "Sansão recebeu força extraordinária e realizou grandes feitos contra os filisteus.",
+    "bibleReference": "Juízes 14–16"
+  },
+  {
+    "id": "pb-f-004",
+    "question": "Quem era irmão de Moisés?",
+    "options": ["Arão", "Josué", "Calebe", "Jetro"],
+    "correctAnswerIndex": 0,
+    "category": "personagens",
+    "difficulty": "facil",
+    "explanation": "Arão era irmão de Moisés e colaborou com ele perante Faraó.",
+    "bibleReference": "Êxodo 4:14-16"
+  },
+  {
+    "id": "pb-f-005",
+    "question": "Quem era irmã de Moisés?",
+    "options": ["Miriam", "Débora", "Rute", "Ana"],
+    "correctAnswerIndex": 0,
+    "category": "personagens",
+    "difficulty": "facil",
+    "explanation": "Miriam era irmã de Moisés e de Arão.",
+    "bibleReference": "Números 26:59"
+  },
+  {
+    "id": "pb-f-006",
+    "question": "Quem se tornou rainha e ajudou a salvar o povo judeu?",
+    "options": ["Rute", "Ester", "Débora", "Abigail"],
+    "correctAnswerIndex": 1,
+    "category": "personagens",
+    "difficulty": "facil",
+    "explanation": "Ester tornou-se rainha e intercedeu pelo seu povo perante o rei.",
+    "bibleReference": "Ester 4–8"
+  },
+  {
+    "id": "pb-f-007",
+    "question": "Quem acompanhou a sua sogra Noemi e foi para Belém?",
+    "options": ["Rute", "Raquel", "Lea", "Mical"],
+    "correctAnswerIndex": 0,
+    "category": "personagens",
+    "difficulty": "facil",
+    "explanation": "Rute decidiu permanecer com Noemi e acompanhou-a até Belém.",
+    "bibleReference": "Rute 1:16-19"
+  },
+  {
+    "id": "pb-m-001",
+    "question": "Quem interpretou os sonhos de Faraó no Egipto?",
+    "options": ["Moisés", "José", "Daniel", "Arão"],
     "correctAnswerIndex": 1,
     "category": "personagens",
     "difficulty": "medio",
-    "explanation": "Daniel revelou e interpretou o sonho do rei, atribuindo a revelação a Deus.",
-    "bibleReference": "Daniel 2:26-28"
+    "explanation": "José interpretou os sonhos de Faraó sobre os anos de abundância e de fome.",
+    "bibleReference": "Génesis 41:25-32"
   },
   {
-    "id": "12",
+    "id": "pb-m-002",
+    "question": "Quem era o pai de João Baptista?",
+    "options": ["Zacarias", "Simeão", "José", "Ananias"],
+    "correctAnswerIndex": 0,
+    "category": "personagens",
+    "difficulty": "medio",
+    "explanation": "Zacarias, sacerdote, era pai de João Baptista.",
+    "bibleReference": "Lucas 1:5,13"
+  },
+  {
+    "id": "pb-m-003",
+    "question": "Quem era a mãe de João Baptista?",
+    "options": ["Maria", "Isabel", "Ana", "Marta"],
+    "correctAnswerIndex": 1,
+    "category": "personagens",
+    "difficulty": "medio",
+    "explanation": "Isabel era esposa de Zacarias e mãe de João Baptista.",
+    "bibleReference": "Lucas 1:5,13"
+  },
+  {
+    "id": "pb-m-004",
+    "question": "Quem era o sogro de Moisés?",
+    "options": ["Jetro", "Calebe", "Arão", "Eleazar"],
+    "correctAnswerIndex": 0,
+    "category": "personagens",
+    "difficulty": "medio",
+    "explanation": "Jetro, sacerdote de Midiã, era sogro de Moisés.",
+    "bibleReference": "Êxodo 3:1"
+  },
+  {
+    "id": "pb-m-005",
+    "question": "Quem sucedeu ao profeta Elias?",
+    "options": ["Eliseu", "Isaías", "Jeremias", "Samuel"],
+    "correctAnswerIndex": 0,
+    "category": "personagens",
+    "difficulty": "medio",
+    "explanation": "Eliseu acompanhou Elias e continuou o ministério profético depois da sua partida.",
+    "bibleReference": "2 Reis 2:9-15"
+  },
+  {
+    "id": "pb-m-006",
+    "question": "Quem escondeu os espias israelitas em Jericó?",
+    "options": ["Débora", "Raabe", "Rute", "Jael"],
+    "correctAnswerIndex": 1,
+    "category": "personagens",
+    "difficulty": "medio",
+    "explanation": "Raabe escondeu os espias enviados por Josué.",
+    "bibleReference": "Josué 2:1-6"
+  },
+  {
+    "id": "pb-m-007",
+    "question": "Quem era o jovem colaborador de Paulo a quem foram dirigidas duas cartas do Novo Testamento?",
+    "options": ["Tito", "Timóteo", "Silas", "Lucas"],
+    "correctAnswerIndex": 1,
+    "category": "personagens",
+    "difficulty": "medio",
+    "explanation": "As cartas de 1 e 2 Timóteo são dirigidas a Timóteo, colaborador de Paulo.",
+    "bibleReference": "1 Timóteo 1:2; 2 Timóteo 1:2"
+  },
+  {
+    "id": "pb-d-001",
     "question": "Como se chamava o marido da profetisa Débora?",
     "options": ["Lapidote", "Baraque", "Gideão", "Elcana"],
     "correctAnswerIndex": 0,
     "category": "personagens",
     "difficulty": "dificil",
-    "explanation": "Débora, profetisa e juíza de Israel, era mulher de Lapidote.",
+    "explanation": "Débora, profetisa e juíza de Israel, é apresentada como mulher de Lapidote.",
     "bibleReference": "Juízes 4:4"
   },
   {
-    "id": "13",
+    "id": "pb-d-002",
+    "question": "Quem era o pai de Mefibosete?",
+    "options": ["Saul", "Jónatas", "Davi", "Abner"],
+    "correctAnswerIndex": 1,
+    "category": "personagens",
+    "difficulty": "dificil",
+    "explanation": "Mefibosete era filho de Jónatas e neto de Saul.",
+    "bibleReference": "2 Samuel 4:4"
+  },
+  {
+    "id": "pb-d-003",
+    "question": "Quem se identifica como o escriba que escreveu materialmente a carta aos Romanos?",
+    "options": ["Tércio", "Sóstenes", "Silvano", "Aristarco"],
+    "correctAnswerIndex": 0,
+    "category": "personagens",
+    "difficulty": "dificil",
+    "explanation": "Tércio identifica-se na carta como aquele que a escreveu.",
+    "bibleReference": "Romanos 16:22"
+  },
+  {
+    "id": "pb-d-004",
+    "question": "Qual era o nome hebraico de Ester?",
+    "options": ["Hadassa", "Miriam", "Abisague", "Tamar"],
+    "correctAnswerIndex": 0,
+    "category": "personagens",
+    "difficulty": "dificil",
+    "explanation": "Ester é identificada também pelo nome Hadassa.",
+    "bibleReference": "Ester 2:7"
+  },
+  {
+    "id": "pb-d-005",
+    "question": "Quem era o pai do profeta Oseias?",
+    "options": ["Beeri", "Amoz", "Hilquias", "Buzi"],
+    "correctAnswerIndex": 0,
+    "category": "personagens",
+    "difficulty": "dificil",
+    "explanation": "O livro de Oseias apresenta o profeta como filho de Beeri.",
+    "bibleReference": "Oseias 1:1"
+  },
+  {
+    "id": "pb-d-006",
+    "question": "Quem era o pai do profeta Ezequiel?",
+    "options": ["Buzi", "Amoz", "Beeri", "Safã"],
+    "correctAnswerIndex": 0,
+    "category": "personagens",
+    "difficulty": "dificil",
+    "explanation": "Ezequiel é apresentado como filho de Buzi, o sacerdote.",
+    "bibleReference": "Ezequiel 1:3"
+  },
+  {
+    "id": "rp-f-001",
     "question": "Quem foi o primeiro rei de Israel?",
     "options": ["Davi", "Saul", "Salomão", "Samuel"],
     "correctAnswerIndex": 1,
@@ -135,17 +840,137 @@
     "bibleReference": "1 Samuel 10:1"
   },
   {
-    "id": "14",
+    "id": "rp-f-002",
+    "question": "Quem sucedeu a Davi como rei?",
+    "options": ["Absalão", "Salomão", "Saul", "Roboão"],
+    "correctAnswerIndex": 1,
+    "category": "reisEProfetas",
+    "difficulty": "facil",
+    "explanation": "Salomão sucedeu a Davi no trono.",
+    "bibleReference": "1 Reis 2:12"
+  },
+  {
+    "id": "rp-f-003",
+    "question": "Que profeta foi levado ao céu num redemoinho?",
+    "options": ["Isaías", "Elias", "Jeremias", "Ezequiel"],
+    "correctAnswerIndex": 1,
+    "category": "reisEProfetas",
+    "difficulty": "facil",
+    "explanation": "Elias foi levado ao céu num redemoinho.",
+    "bibleReference": "2 Reis 2:11"
+  },
+  {
+    "id": "rp-f-004",
+    "question": "Que rei pediu sabedoria a Deus?",
+    "options": ["Saul", "Davi", "Salomão", "Ezequias"],
+    "correctAnswerIndex": 2,
+    "category": "reisEProfetas",
+    "difficulty": "facil",
+    "explanation": "Salomão pediu entendimento para governar o povo.",
+    "bibleReference": "1 Reis 3:5-12"
+  },
+  {
+    "id": "rp-f-005",
+    "question": "Que profeta enfrentou os profetas de Baal no monte Carmelo?",
+    "options": ["Eliseu", "Elias", "Samuel", "Natã"],
+    "correctAnswerIndex": 1,
+    "category": "reisEProfetas",
+    "difficulty": "facil",
+    "explanation": "Elias desafiou os profetas de Baal no monte Carmelo.",
+    "bibleReference": "1 Reis 18:19-39"
+  },
+  {
+    "id": "rp-f-006",
+    "question": "Que profeta foi enviado a Nínive?",
+    "options": ["Jonas", "Amós", "Oseias", "Miqueias"],
+    "correctAnswerIndex": 0,
+    "category": "reisEProfetas",
+    "difficulty": "facil",
+    "explanation": "Deus enviou Jonas à cidade de Nínive.",
+    "bibleReference": "Jonas 1:1-2"
+  },
+  {
+    "id": "rp-f-007",
+    "question": "Que rei era pai de Salomão?",
+    "options": ["Saul", "Davi", "Roboão", "Jessé"],
+    "correctAnswerIndex": 1,
+    "category": "reisEProfetas",
+    "difficulty": "facil",
+    "explanation": "Salomão era filho do rei Davi.",
+    "bibleReference": "2 Samuel 12:24"
+  },
+  {
+    "id": "rp-m-001",
     "question": "Que profeta confrontou Davi depois do seu pecado relacionado com Bate-Seba?",
     "options": ["Samuel", "Natã", "Elias", "Isaías"],
     "correctAnswerIndex": 1,
     "category": "reisEProfetas",
     "difficulty": "medio",
-    "explanation": "O profeta Natã confrontou Davi através da parábola do homem rico e do homem pobre.",
+    "explanation": "Natã confrontou Davi através da parábola do homem rico e do homem pobre.",
     "bibleReference": "2 Samuel 12:1-7"
   },
   {
-    "id": "15",
+    "id": "rp-m-002",
+    "question": "Que rei ficou doente e recebeu mais quinze anos de vida?",
+    "options": ["Josias", "Ezequias", "Acaz", "Manassés"],
+    "correctAnswerIndex": 1,
+    "category": "reisEProfetas",
+    "difficulty": "medio",
+    "explanation": "Deus concedeu a Ezequias mais quinze anos de vida.",
+    "bibleReference": "2 Reis 20:1-6"
+  },
+  {
+    "id": "rp-m-003",
+    "question": "Quem ungiu Davi quando ele ainda era jovem?",
+    "options": ["Natã", "Samuel", "Elias", "Gade"],
+    "correctAnswerIndex": 1,
+    "category": "reisEProfetas",
+    "difficulty": "medio",
+    "explanation": "Samuel ungiu Davi no meio dos seus irmãos.",
+    "bibleReference": "1 Samuel 16:12-13"
+  },
+  {
+    "id": "rp-m-004",
+    "question": "Qual rei rejeitou o conselho dos anciãos e contribuiu para a divisão do reino?",
+    "options": ["Roboão", "Jeroboão", "Acabe", "Josafá"],
+    "correctAnswerIndex": 0,
+    "category": "reisEProfetas",
+    "difficulty": "medio",
+    "explanation": "A resposta dura de Roboão contribuiu para a divisão do reino.",
+    "bibleReference": "1 Reis 12:6-17"
+  },
+  {
+    "id": "rp-m-005",
+    "question": "Que profeta aconselhou Naamã a lavar-se sete vezes no Jordão?",
+    "options": ["Elias", "Eliseu", "Isaías", "Jeremias"],
+    "correctAnswerIndex": 1,
+    "category": "reisEProfetas",
+    "difficulty": "medio",
+    "explanation": "Eliseu mandou Naamã lavar-se sete vezes no Jordão.",
+    "bibleReference": "2 Reis 5:10"
+  },
+  {
+    "id": "rp-m-006",
+    "question": "Que rei de Judá promoveu reformas depois de ser encontrado o Livro da Lei?",
+    "options": ["Josias", "Acaz", "Uzias", "Jotão"],
+    "correctAnswerIndex": 0,
+    "category": "reisEProfetas",
+    "difficulty": "medio",
+    "explanation": "Josias reagiu à leitura do Livro da Lei com reformas religiosas.",
+    "bibleReference": "2 Reis 22–23"
+  },
+  {
+    "id": "rp-m-007",
+    "question": "Que profeta teve a visão de um vale de ossos secos?",
+    "options": ["Daniel", "Ezequiel", "Jeremias", "Zacarias"],
+    "correctAnswerIndex": 1,
+    "category": "reisEProfetas",
+    "difficulty": "medio",
+    "explanation": "Ezequiel recebeu a visão do vale cheio de ossos secos.",
+    "bibleReference": "Ezequiel 37:1-14"
+  },
+  {
+    "id": "rp-d-001",
     "question": "Que rei viu uma escrita misteriosa aparecer na parede durante um banquete?",
     "options": ["Ciro", "Nabucodonosor", "Belsazar", "Dario"],
     "correctAnswerIndex": 2,
@@ -155,7 +980,57 @@
     "bibleReference": "Daniel 5:5"
   },
   {
-    "id": "16",
+    "id": "rp-d-002",
+    "question": "Que profeta rasgou uma capa nova em doze pedaços como sinal da divisão do reino?",
+    "options": ["Aías", "Semaías", "Micaías", "Azarias"],
+    "correctAnswerIndex": 0,
+    "category": "reisEProfetas",
+    "difficulty": "dificil",
+    "explanation": "Aías, de Siló, rasgou uma capa nova em doze pedaços perante Jeroboão.",
+    "bibleReference": "1 Reis 11:29-31"
+  },
+  {
+    "id": "rp-d-003",
+    "question": "Qual rei de Israel reinou apenas sete dias em Tirza?",
+    "options": ["Zinri", "Omri", "Ela", "Nadabe"],
+    "correctAnswerIndex": 0,
+    "category": "reisEProfetas",
+    "difficulty": "dificil",
+    "explanation": "Zinri reinou sete dias em Tirza.",
+    "bibleReference": "1 Reis 16:15"
+  },
+  {
+    "id": "rp-d-004",
+    "question": "Que profeta foi lançado numa cisterna com lama durante o cerco de Jerusalém?",
+    "options": ["Isaías", "Jeremias", "Ezequiel", "Amós"],
+    "correctAnswerIndex": 1,
+    "category": "reisEProfetas",
+    "difficulty": "dificil",
+    "explanation": "Jeremias foi lançado numa cisterna onde havia lama.",
+    "bibleReference": "Jeremias 38:6"
+  },
+  {
+    "id": "rp-d-005",
+    "question": "Que rei queimou o rolo que continha as palavras ditadas por Jeremias?",
+    "options": ["Jeoaquim", "Zedequias", "Josias", "Joaquim"],
+    "correctAnswerIndex": 0,
+    "category": "reisEProfetas",
+    "difficulty": "dificil",
+    "explanation": "O rei Jeoaquim cortou e queimou partes do rolo lido por Jeudi.",
+    "bibleReference": "Jeremias 36:22-23"
+  },
+  {
+    "id": "rp-d-006",
+    "question": "Que profeta menciona Ciro pelo nome no contexto da reconstrução de Jerusalém?",
+    "options": ["Isaías", "Jeremias", "Daniel", "Ageu"],
+    "correctAnswerIndex": 0,
+    "category": "reisEProfetas",
+    "difficulty": "dificil",
+    "explanation": "Isaías menciona Ciro no contexto da restauração e reconstrução.",
+    "bibleReference": "Isaías 44:28"
+  },
+  {
+    "id": "lb-f-001",
     "question": "Qual é o primeiro livro da Bíblia?",
     "options": ["Êxodo", "Salmos", "Génesis", "Mateus"],
     "correctAnswerIndex": 2,
@@ -165,7 +1040,67 @@
     "bibleReference": "Génesis 1:1"
   },
   {
-    "id": "17",
+    "id": "lb-f-002",
+    "question": "Qual é o último livro do Novo Testamento?",
+    "options": ["Judas", "Hebreus", "Apocalipse", "Actos"],
+    "correctAnswerIndex": 2,
+    "category": "livrosDaBiblia",
+    "difficulty": "facil",
+    "explanation": "Apocalipse encerra a ordem tradicional dos livros do Novo Testamento.",
+    "bibleReference": "Apocalipse 1:1"
+  },
+  {
+    "id": "lb-f-003",
+    "question": "Qual dos seguintes livros pertence ao Novo Testamento?",
+    "options": ["Levítico", "Romanos", "Josué", "Juízes"],
+    "correctAnswerIndex": 1,
+    "category": "livrosDaBiblia",
+    "difficulty": "facil",
+    "explanation": "Romanos é uma das cartas do Novo Testamento.",
+    "bibleReference": "Romanos 1:1"
+  },
+  {
+    "id": "lb-f-004",
+    "question": "Qual destes é um dos quatro Evangelhos?",
+    "options": ["Isaías", "Marcos", "Actos", "Romanos"],
+    "correctAnswerIndex": 1,
+    "category": "livrosDaBiblia",
+    "difficulty": "facil",
+    "explanation": "Marcos é um dos quatro Evangelhos do Novo Testamento.",
+    "bibleReference": "Marcos 1:1"
+  },
+  {
+    "id": "lb-f-005",
+    "question": "Em que livro se encontra o relato inicial da criação?",
+    "options": ["Génesis", "Êxodo", "Salmos", "Provérbios"],
+    "correctAnswerIndex": 0,
+    "category": "livrosDaBiblia",
+    "difficulty": "facil",
+    "explanation": "O relato inicial da criação encontra-se em Génesis.",
+    "bibleReference": "Génesis 1–2"
+  },
+  {
+    "id": "lb-f-006",
+    "question": "Em que livro se encontram os Dez Mandamentos dados no Sinai?",
+    "options": ["Êxodo", "Josué", "Rute", "1 Samuel"],
+    "correctAnswerIndex": 0,
+    "category": "livrosDaBiblia",
+    "difficulty": "facil",
+    "explanation": "Os Dez Mandamentos são apresentados em Êxodo 20.",
+    "bibleReference": "Êxodo 20:1-17"
+  },
+  {
+    "id": "lb-f-007",
+    "question": "Qual livro é conhecido por conter muitos cânticos e orações?",
+    "options": ["Números", "Salmos", "Actos", "Gálatas"],
+    "correctAnswerIndex": 1,
+    "category": "livrosDaBiblia",
+    "difficulty": "facil",
+    "explanation": "Salmos reúne cânticos, orações e poemas utilizados na adoração.",
+    "bibleReference": "Salmos"
+  },
+  {
+    "id": "lb-m-001",
     "question": "Em que livro do Novo Testamento encontramos a armadura de Deus?",
     "options": ["Romanos", "Efésios", "Hebreus", "Gálatas"],
     "correctAnswerIndex": 1,
@@ -175,7 +1110,67 @@
     "bibleReference": "Efésios 6:11-17"
   },
   {
-    "id": "18",
+    "id": "lb-m-002",
+    "question": "Em que livro encontramos a história de Rute e Noemi?",
+    "options": ["Ester", "Rute", "Juízes", "Neemias"],
+    "correctAnswerIndex": 1,
+    "category": "livrosDaBiblia",
+    "difficulty": "medio",
+    "explanation": "A história de Rute e Noemi é narrada no livro de Rute.",
+    "bibleReference": "Rute 1–4"
+  },
+  {
+    "id": "lb-m-003",
+    "question": "Qual livro narra principalmente a expansão inicial da Igreja depois da ascensão de Jesus?",
+    "options": ["Romanos", "Actos", "Hebreus", "Apocalipse"],
+    "correctAnswerIndex": 1,
+    "category": "livrosDaBiblia",
+    "difficulty": "medio",
+    "explanation": "Actos narra a expansão da Igreja e o ministério dos apóstolos.",
+    "bibleReference": "Actos 1:8"
+  },
+  {
+    "id": "lb-m-004",
+    "question": "Em que livro se encontra o capítulo frequentemente conhecido como o «capítulo do amor»?",
+    "options": ["1 Coríntios", "Romanos", "Efésios", "Hebreus"],
+    "correctAnswerIndex": 0,
+    "category": "livrosDaBiblia",
+    "difficulty": "medio",
+    "explanation": "1 Coríntios 13 desenvolve de forma extensa o tema do amor.",
+    "bibleReference": "1 Coríntios 13"
+  },
+  {
+    "id": "lb-m-005",
+    "question": "Em que livro está registada a história da rainha Ester?",
+    "options": ["Esdras", "Ester", "Neemias", "Rute"],
+    "correctAnswerIndex": 1,
+    "category": "livrosDaBiblia",
+    "difficulty": "medio",
+    "explanation": "A história da rainha Ester encontra-se no livro que leva o seu nome.",
+    "bibleReference": "Ester"
+  },
+  {
+    "id": "lb-m-006",
+    "question": "Qual Evangelho começa com uma descrição da Palavra que estava com Deus?",
+    "options": ["Mateus", "Marcos", "Lucas", "João"],
+    "correctAnswerIndex": 3,
+    "category": "livrosDaBiblia",
+    "difficulty": "medio",
+    "explanation": "O Evangelho de João abre com um prólogo sobre a Palavra.",
+    "bibleReference": "João 1:1-3"
+  },
+  {
+    "id": "lb-m-007",
+    "question": "Em que livro se encontra a visão do vale de ossos secos?",
+    "options": ["Daniel", "Ezequiel", "Zacarias", "Jeremias"],
+    "correctAnswerIndex": 1,
+    "category": "livrosDaBiblia",
+    "difficulty": "medio",
+    "explanation": "A visão do vale de ossos secos encontra-se em Ezequiel.",
+    "bibleReference": "Ezequiel 37:1-14"
+  },
+  {
+    "id": "lb-d-001",
     "question": "Em que livro encontramos a expressão «vaidade de vaidades»?",
     "options": ["Provérbios", "Job", "Eclesiastes", "Salmos"],
     "correctAnswerIndex": 2,
@@ -183,5 +1178,55 @@
     "difficulty": "dificil",
     "explanation": "A expressão aparece no início do livro de Eclesiastes.",
     "bibleReference": "Eclesiastes 1:2"
+  },
+  {
+    "id": "lb-d-002",
+    "question": "Qual livro do Antigo Testamento termina com uma pergunta de Deus acerca de Nínive?",
+    "options": ["Naum", "Jonas", "Miqueias", "Habacuque"],
+    "correctAnswerIndex": 1,
+    "category": "livrosDaBiblia",
+    "difficulty": "dificil",
+    "explanation": "O livro de Jonas termina com Deus a questionar a atitude do profeta em relação a Nínive.",
+    "bibleReference": "Jonas 4:11"
+  },
+  {
+    "id": "lb-d-003",
+    "question": "Qual carta do Novo Testamento é dirigida directamente a Filemom?",
+    "options": ["Filemom", "Colossenses", "Tito", "2 Timóteo"],
+    "correctAnswerIndex": 0,
+    "category": "livrosDaBiblia",
+    "difficulty": "dificil",
+    "explanation": "A carta a Filemom é dirigida directamente a Filemom.",
+    "bibleReference": "Filemom 1:1-2"
+  },
+  {
+    "id": "lb-d-004",
+    "question": "Em que livro aparece Melquisedeque pela primeira vez?",
+    "options": ["Êxodo", "Génesis", "Levítico", "Hebreus"],
+    "correctAnswerIndex": 1,
+    "category": "livrosDaBiblia",
+    "difficulty": "dificil",
+    "explanation": "Melquisedeque aparece pela primeira vez no encontro com Abraão em Génesis.",
+    "bibleReference": "Génesis 14:18"
+  },
+  {
+    "id": "lb-d-005",
+    "question": "Qual livro profético contém a visão de quatro carros que saem entre dois montes?",
+    "options": ["Zacarias", "Daniel", "Ezequiel", "Naum"],
+    "correctAnswerIndex": 0,
+    "category": "livrosDaBiblia",
+    "difficulty": "dificil",
+    "explanation": "A visão dos quatro carros encontra-se no livro de Zacarias.",
+    "bibleReference": "Zacarias 6:1-8"
+  },
+  {
+    "id": "lb-d-006",
+    "question": "Em que livro se encontra uma oração do profeta que ocupa todo o terceiro capítulo?",
+    "options": ["Sofonias", "Habacuque", "Ageu", "Malaquias"],
+    "correctAnswerIndex": 1,
+    "category": "livrosDaBiblia",
+    "difficulty": "dificil",
+    "explanation": "O terceiro capítulo de Habacuque é apresentado como uma oração do profeta.",
+    "bibleReference": "Habacuque 3"
   }
 ]

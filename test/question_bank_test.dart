@@ -7,22 +7,22 @@ import 'package:flutter/services.dart';
 import 'package:flutter_test/flutter_test.dart';
 
 /// Conjunto de testes responsável por validar a integridade
-/// do base de dados local de perguntas do Quiz Bíblico.
+/// do banco local de perguntas do Quiz Bíblico.
 ///
-/// Estes testes ajudam a detectar automaticamente problemas como:
+/// Estes testes permitem detectar automaticamente problemas como:
 ///
 /// - identificadores repetidos;
 /// - perguntas sem quatro alternativas;
-/// - índices de resposta incorrectos;
+/// - índices de resposta inválidos;
 /// - alternativas repetidas;
 /// - categorias sem perguntas;
 /// - níveis de dificuldade sem conteúdo.
 ///
-/// Desta forma, novas perguntas podem ser acrescentadas ao JSON
-/// com maior segurança.
+/// Desta forma, novas perguntas podem ser acrescentadas ao ficheiro
+/// JSON com maior segurança.
 void main() {
-  /// Inicializa o ambiente necessário para utilizar serviços
-  /// do Flutter durante os testes.
+  /// Inicializa o ambiente necessário para utilizar o [rootBundle]
+  /// durante a execução dos testes.
   TestWidgetsFlutterBinding.ensureInitialized();
 
   /// Caminho do ficheiro JSON utilizado pela aplicação.
@@ -30,34 +30,34 @@ void main() {
 
   /// Carrega todas as perguntas existentes no ficheiro JSON.
   ///
-  /// O conteúdo do ficheiro é convertido primeiro para uma lista
-  /// dinâmica e posteriormente para uma lista de [QuestionModel].
+  /// O conteúdo é convertido primeiro para uma lista dinâmica e,
+  /// em seguida, para uma lista fortemente tipada de [QuestionModel].
   Future<List<QuestionModel>> loadQuestions() async {
-    /// Lê o conteúdo do ficheiro presente nos assets.
+    /// Lê o conteúdo integral do ficheiro registado nos assets.
     final jsonString = await rootBundle.loadString(questionsAsset);
 
-    /// Converte a String JSON numa lista.
+    /// Converte o texto JSON numa lista dinâmica.
     final decoded = jsonDecode(jsonString) as List<dynamic>;
 
-    /// Converte cada objecto JSON para [QuestionModel].
+    /// Converte cada objecto do JSON para [QuestionModel].
     return decoded.map((item) {
       return QuestionModel.fromJson(Map<String, dynamic>.from(item as Map));
     }).toList();
   }
 
-  group('Base de dados de perguntas', () {
-    /// Garante que o projecto possui a quantidade mínima
-    /// definida para a primeira versão do banco.
-    test('deve possuir pelo menos 120 perguntas', () async {
+  group('Banco de perguntas', () {
+    /// Garante que esta versão do banco possui exactamente
+    /// as 120 perguntas definidas para o MVP.
+    test('deve possuir exactamente 120 perguntas', () async {
       final questions = await loadQuestions();
 
-      expect(questions.length, greaterThanOrEqualTo(120));
+      expect(questions.length, 120);
     });
 
-    /// Cada pergunta deve possuir um identificador único.
+    /// Garante que cada pergunta possui um identificador único.
     ///
-    /// Isto será especialmente importante quando utilizarmos
-    /// Hive CE e histórico de respostas.
+    /// Esta regra será especialmente importante quando o histórico
+    /// e as estatísticas forem persistidos com Hive CE.
     test('não deve possuir identificadores repetidos', () async {
       final questions = await loadQuestions();
 
@@ -66,8 +66,8 @@ void main() {
       expect(ids.toSet().length, ids.length);
     });
 
-    /// O formato actual do quiz utiliza exactamente
-    /// quatro alternativas por pergunta.
+    /// O formato actual do quiz utiliza exactamente quatro
+    /// alternativas em cada pergunta.
     test('cada pergunta deve possuir quatro alternativas', () async {
       final questions = await loadQuestions();
 
@@ -80,8 +80,8 @@ void main() {
       }
     });
 
-    /// Verifica se [correctAnswerIndex] aponta para
-    /// uma posição realmente existente.
+    /// Valida se [QuestionModel.correctAnswerIndex] aponta para
+    /// uma posição existente na lista de alternativas.
     test('o índice da resposta correcta deve ser válido', () async {
       final questions = await loadQuestions();
 
@@ -95,9 +95,9 @@ void main() {
       }
     });
 
-    /// Impede a existência de duas alternativas iguais
+    /// Impede que a mesma alternativa apareça mais de uma vez
     /// dentro da mesma pergunta.
-    test('uma pergunta não deve repetir alternativas', () async {
+    test('uma pergunta não deve possuir alternativas repetidas', () async {
       final questions = await loadQuestions();
 
       for (final question in questions) {
@@ -109,22 +109,46 @@ void main() {
       }
     });
 
-    /// Garante que cada categoria real possui conteúdo
-    /// nos três níveis de dificuldade.
+    /// Garante que todas as perguntas possuem os textos
+    /// essenciais necessários para apresentação e revisão.
+    test('todas as perguntas devem possuir conteúdo obrigatório', () async {
+      final questions = await loadQuestions();
+
+      for (final question in questions) {
+        expect(
+          question.question.trim(),
+          isNotEmpty,
+          reason: 'A pergunta ${question.id} não possui enunciado.',
+        );
+
+        expect(
+          question.explanation.trim(),
+          isNotEmpty,
+          reason: 'A pergunta ${question.id} não possui explicação.',
+        );
+
+        expect(
+          question.bibleReference.trim(),
+          isNotEmpty,
+          reason: 'A pergunta ${question.id} não possui referência bíblica.',
+        );
+      }
+    });
+
+    /// Garante que cada categoria real possui perguntas nos três
+    /// níveis de dificuldade.
+    ///
+    /// [QuizCategory.geral] não é armazenada no JSON, porque funciona
+    /// como agregadora das restantes categorias.
     test('todas as categorias devem possuir os três níveis', () async {
       final questions = await loadQuestions();
 
-      /// A categoria Geral não precisa de perguntas próprias.
-      ///
-      /// Ela funciona como agregadora das restantes categorias.
       final categories = QuizCategory.values.where((category) {
         return category != QuizCategory.geral;
       });
 
       for (final category in categories) {
         for (final difficulty in QuizDifficulty.values) {
-          /// Procura perguntas pertencentes simultaneamente
-          /// à categoria e dificuldade analisadas.
           final filtered = questions.where((question) {
             return question.category == category &&
                 question.difficulty == difficulty;
@@ -136,6 +160,48 @@ void main() {
             reason: '${category.name}/${difficulty.name} não possui perguntas.',
           );
         }
+      }
+    });
+
+    /// Valida a distribuição definida para esta versão:
+    ///
+    /// - 20 perguntas por categoria;
+    /// - 7 perguntas fáceis;
+    /// - 7 perguntas médias;
+    /// - 6 perguntas difíceis.
+    test('cada categoria deve possuir a distribuição 7/7/6', () async {
+      final questions = await loadQuestions();
+
+      final categories = QuizCategory.values.where((category) {
+        return category != QuizCategory.geral;
+      });
+
+      for (final category in categories) {
+        final categoryQuestions = questions
+            .where((question) => question.category == category)
+            .toList();
+
+        expect(
+          categoryQuestions.length,
+          20,
+          reason: '${category.name} deve possuir exactamente 20 perguntas.',
+        );
+
+        final easyCount = categoryQuestions
+            .where((question) => question.difficulty == QuizDifficulty.facil)
+            .length;
+
+        final mediumCount = categoryQuestions
+            .where((question) => question.difficulty == QuizDifficulty.medio)
+            .length;
+
+        final hardCount = categoryQuestions
+            .where((question) => question.difficulty == QuizDifficulty.dificil)
+            .length;
+
+        expect(easyCount, 7);
+        expect(mediumCount, 7);
+        expect(hardCount, 6);
       }
     });
   });
