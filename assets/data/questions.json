@@ -1,0 +1,187 @@
+[
+  {
+    "id": "1",
+    "question": "Quem construiu a arca?",
+    "options": ["Abraão", "Moisés", "Noé", "Davi"],
+    "correctAnswerIndex": 2,
+    "category": "antigoTestamento",
+    "difficulty": "facil",
+    "explanation": "Deus ordenou a Noé que construísse uma arca para sobreviver ao dilúvio.",
+    "bibleReference": "Génesis 6:14"
+  },
+  {
+    "id": "2",
+    "question": "Quem foi vendido pelos seus irmãos e levado para o Egipto?",
+    "options": ["José", "Benjamim", "Levi", "Judá"],
+    "correctAnswerIndex": 0,
+    "category": "antigoTestamento",
+    "difficulty": "medio",
+    "explanation": "José foi vendido pelos seus irmãos e levado para o Egipto.",
+    "bibleReference": "Génesis 37:28"
+  },
+  {
+    "id": "3",
+    "question": "Quem encontrou o Livro da Lei no templo durante o reinado de Josias?",
+    "options": ["Safã", "Hilquias", "Jeremias", "Esdras"],
+    "correctAnswerIndex": 1,
+    "category": "antigoTestamento",
+    "difficulty": "dificil",
+    "explanation": "O sumo sacerdote Hilquias encontrou o Livro da Lei no templo.",
+    "bibleReference": "2 Reis 22:8"
+  },
+  {
+    "id": "4",
+    "question": "Quantos apóstolos Jesus escolheu?",
+    "options": ["7", "10", "12", "14"],
+    "correctAnswerIndex": 2,
+    "category": "novoTestamento",
+    "difficulty": "facil",
+    "explanation": "Jesus escolheu doze discípulos, aos quais chamou apóstolos.",
+    "bibleReference": "Lucas 6:13"
+  },
+  {
+    "id": "5",
+    "question": "Quem foi escolhido para substituir Judas Iscariotes?",
+    "options": ["Barnabé", "Matias", "Silas", "Estêvão"],
+    "correctAnswerIndex": 1,
+    "category": "novoTestamento",
+    "difficulty": "medio",
+    "explanation": "Matias foi escolhido para ocupar o lugar deixado por Judas.",
+    "bibleReference": "Actos 1:26"
+  },
+  {
+    "id": "6",
+    "question": "Em que porta do templo Pedro e João encontraram um homem coxo?",
+    "options": [
+      "Porta Formosa",
+      "Porta das Ovelhas",
+      "Porta Oriental",
+      "Porta das Águas"
+    ],
+    "correctAnswerIndex": 0,
+    "category": "novoTestamento",
+    "difficulty": "dificil",
+    "explanation": "O homem era colocado diariamente junto à porta do templo chamada Formosa.",
+    "bibleReference": "Actos 3:2"
+  },
+  {
+    "id": "7",
+    "question": "Em que cidade nasceu Jesus?",
+    "options": ["Jerusalém", "Nazaré", "Belém", "Cafarnaum"],
+    "correctAnswerIndex": 2,
+    "category": "jesusCristo",
+    "difficulty": "facil",
+    "explanation": "Jesus nasceu em Belém da Judeia.",
+    "bibleReference": "Mateus 2:1"
+  },
+  {
+    "id": "8",
+    "question": "Onde realizou Jesus o seu primeiro sinal relatado no Evangelho de João?",
+    "options": ["Jerusalém", "Caná da Galileia", "Belém", "Betânia"],
+    "correctAnswerIndex": 1,
+    "category": "jesusCristo",
+    "difficulty": "medio",
+    "explanation": "Jesus transformou água em vinho durante um casamento em Caná da Galileia.",
+    "bibleReference": "João 2:1-11"
+  },
+  {
+    "id": "9",
+    "question": "Que expressão disse Jesus à filha de Jairo antes de ela se levantar?",
+    "options": ["Efatá", "Talita cumi", "Eli, Eli", "Hosana"],
+    "correctAnswerIndex": 1,
+    "category": "jesusCristo",
+    "difficulty": "dificil",
+    "explanation": "Jesus tomou a menina pela mão e disse-lhe: Talita cumi.",
+    "bibleReference": "Marcos 5:41"
+  },
+  {
+    "id": "10",
+    "question": "Quem foi lançado na cova dos leões?",
+    "options": ["Daniel", "Elias", "Isaías", "Jeremias"],
+    "correctAnswerIndex": 0,
+    "category": "personagens",
+    "difficulty": "facil",
+    "explanation": "Daniel foi lançado na cova dos leões por continuar a orar a Deus.",
+    "bibleReference": "Daniel 6:16"
+  },
+  {
+    "id": "11",
+    "question": "Quem interpretou o sonho do rei Nabucodonosor?",
+    "options": ["José", "Daniel", "Ezequiel", "Jeremias"],
+    "correctAnswerIndex": 1,
+    "category": "personagens",
+    "difficulty": "medio",
+    "explanation": "Daniel revelou e interpretou o sonho do rei, atribuindo a revelação a Deus.",
+    "bibleReference": "Daniel 2:26-28"
+  },
+  {
+    "id": "12",
+    "question": "Como se chamava o marido da profetisa Débora?",
+    "options": ["Lapidote", "Baraque", "Gideão", "Elcana"],
+    "correctAnswerIndex": 0,
+    "category": "personagens",
+    "difficulty": "dificil",
+    "explanation": "Débora, profetisa e juíza de Israel, era mulher de Lapidote.",
+    "bibleReference": "Juízes 4:4"
+  },
+  {
+    "id": "13",
+    "question": "Quem foi o primeiro rei de Israel?",
+    "options": ["Davi", "Saul", "Salomão", "Samuel"],
+    "correctAnswerIndex": 1,
+    "category": "reisEProfetas",
+    "difficulty": "facil",
+    "explanation": "Saul foi ungido por Samuel e tornou-se o primeiro rei de Israel.",
+    "bibleReference": "1 Samuel 10:1"
+  },
+  {
+    "id": "14",
+    "question": "Que profeta confrontou Davi depois do seu pecado relacionado com Bate-Seba?",
+    "options": ["Samuel", "Natã", "Elias", "Isaías"],
+    "correctAnswerIndex": 1,
+    "category": "reisEProfetas",
+    "difficulty": "medio",
+    "explanation": "O profeta Natã confrontou Davi através da parábola do homem rico e do homem pobre.",
+    "bibleReference": "2 Samuel 12:1-7"
+  },
+  {
+    "id": "15",
+    "question": "Que rei viu uma escrita misteriosa aparecer na parede durante um banquete?",
+    "options": ["Ciro", "Nabucodonosor", "Belsazar", "Dario"],
+    "correctAnswerIndex": 2,
+    "category": "reisEProfetas",
+    "difficulty": "dificil",
+    "explanation": "Durante o banquete de Belsazar, apareceram dedos que escreveram na parede.",
+    "bibleReference": "Daniel 5:5"
+  },
+  {
+    "id": "16",
+    "question": "Qual é o primeiro livro da Bíblia?",
+    "options": ["Êxodo", "Salmos", "Génesis", "Mateus"],
+    "correctAnswerIndex": 2,
+    "category": "livrosDaBiblia",
+    "difficulty": "facil",
+    "explanation": "Génesis é o primeiro livro da Bíblia.",
+    "bibleReference": "Génesis 1:1"
+  },
+  {
+    "id": "17",
+    "question": "Em que livro do Novo Testamento encontramos a armadura de Deus?",
+    "options": ["Romanos", "Efésios", "Hebreus", "Gálatas"],
+    "correctAnswerIndex": 1,
+    "category": "livrosDaBiblia",
+    "difficulty": "medio",
+    "explanation": "Paulo descreve a armadura de Deus na carta aos Efésios.",
+    "bibleReference": "Efésios 6:11-17"
+  },
+  {
+    "id": "18",
+    "question": "Em que livro encontramos a expressão «vaidade de vaidades»?",
+    "options": ["Provérbios", "Job", "Eclesiastes", "Salmos"],
+    "correctAnswerIndex": 2,
+    "category": "livrosDaBiblia",
+    "difficulty": "dificil",
+    "explanation": "A expressão aparece no início do livro de Eclesiastes.",
+    "bibleReference": "Eclesiastes 1:2"
+  }
+]

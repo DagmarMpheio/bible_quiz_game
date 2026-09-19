@@ -14,6 +14,23 @@ final questionRepositoryProvider = Provider<QuestionRepository>((ref) {
   return LocalQuestionRepository();
 });
 
+/// Provider assíncrono responsável por obter os níveis de
+/// dificuldade disponíveis para determinada categoria.
+///
+/// A família (`family`) permite fornecer uma categoria diferente
+/// como parâmetro para cada consulta.
+final availableDifficultiesProvider =
+    FutureProvider.family<List<QuizDifficulty>, QuizCategory>((
+      ref,
+      category,
+    ) async {
+      /// Obtém o repositório configurado na aplicação.
+      final repository = ref.watch(questionRepositoryProvider);
+
+      /// Consulta os níveis que possuem perguntas disponíveis.
+      return repository.getAvailableDifficulties(category);
+    });
+
 /// Representa todo o estado necessário durante uma sessão do quiz.
 ///
 /// Esta classe é imutável. Sempre que alguma informação do quiz é alterada,

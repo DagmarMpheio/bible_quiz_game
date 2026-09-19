@@ -58,4 +58,53 @@ class QuestionModel {
     required this.explanation,
     required this.bibleReference,
   });
+
+  /// Cria uma instância de [QuestionModel] a partir de um mapa JSON.
+  ///
+  /// Os valores de categoria e dificuldade são guardados no JSON
+  /// através dos respectivos nomes internos dos enums.
+  factory QuestionModel.fromJson(Map<String, dynamic> json) {
+    return QuestionModel(
+      id: json['id'] as String,
+      question: json['question'] as String,
+
+      /// Converte a lista dinâmica proveniente do JSON
+      /// numa lista tipada de [String].
+      options: List<String>.from(json['options'] as List),
+
+      correctAnswerIndex: json['correctAnswerIndex'] as int,
+
+      /// Converte, por exemplo, "jesusCristo" em
+      /// [QuizCategory.jesusCristo].
+      category: QuizCategory.values.byName(json['category'] as String),
+
+      /// Converte, por exemplo, "medio" em
+      /// [QuizDifficulty.medio].
+      difficulty: QuizDifficulty.values.byName(json['difficulty'] as String),
+
+      explanation: json['explanation'] as String,
+
+      bibleReference: json['bibleReference'] as String,
+    );
+  }
+
+  /// Converte a pergunta para um mapa compatível com JSON.
+  ///
+  /// Este método será útil mais tarde quando as perguntas forem
+  /// guardadas no Hive CE ou sincronizadas com um serviço remoto.
+  Map<String, dynamic> toJson() {
+    return {
+      'id': id,
+      'question': question,
+      'options': options,
+      'correctAnswerIndex': correctAnswerIndex,
+
+      /// `.name` devolve apenas o nome interno do enum.
+      'category': category.name,
+      'difficulty': difficulty.name,
+
+      'explanation': explanation,
+      'bibleReference': bibleReference,
+    };
+  }
 }

@@ -45,6 +45,9 @@ class QuizScreen extends ConsumerStatefulWidget {
 /// Como a tela utiliza [ConsumerState], possui acesso direto ao objeto `ref`
 /// necessário para ler e observar providers do Riverpod.
 class _QuizScreenState extends ConsumerState<QuizScreen> {
+  /// Mensagem apresentada caso ocorra um erro no carregamento.
+  String? _errorMessage;
+
   /// Executado uma única vez quando a tela entra na árvore de widgets.
   @override
   void initState() {
@@ -59,23 +62,58 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
     });
   }
 
-  /// Carrega as perguntas correspondentes à categoria e
-  /// dificuldade seleccionadas.
-  void _loadQuestions() {
-    /// Obtém o repositório através do Riverpod.
-    final repository = ref.read(questionRepositoryProvider);
+  /// Carrega as perguntas correspondentes aos filtros seleccionados.
+  ///
+  /// Como as perguntas são lidas a partir de um ficheiro JSON,
+  /// esta operação é assíncrona.
+  Future<void> _loadQuestions() async {
+    /// Limpa qualquer sessão anterior para impedir que uma
+    /// pergunta antiga apareça enquanto os novos dados carregam.
+    ref.read(quizProvider.notifier).resetQuiz();
 
-    /// Solicita as perguntas adequadas à sessão actual.
-    final questions = repository.getQuestions(
-      category: widget.category,
-      difficulty: widget.difficulty,
-      limit: 10,
-    );
+    try {
+      /// Obtém o repositório de perguntas.
+      final repository = ref.read(questionRepositoryProvider);
 
-    /// Inicia o quiz com os filtros seleccionados.
-    ref
-        .read(quizProvider.notifier)
-        .startQuiz(widget.category, widget.difficulty, questions);
+      /// Aguarda o carregamento e filtragem das perguntas.
+      final questions = await repository.getQuestions(
+        category: widget.category,
+        difficulty: widget.difficulty,
+        limit: 10,
+      );
+
+      /// O widget pode ter sido destruído enquanto aguardávamos
+      /// a operação assíncrona.
+      if (!mounted) {
+        return;
+      }
+
+      /// Evita iniciar um quiz sem perguntas.
+      if (questions.isEmpty) {
+        setState(() {
+          _errorMessage =
+              'Não existem perguntas disponíveis para esta categoria e dificuldade.';
+        });
+
+        return;
+      }
+
+      /// Inicia a sessão depois de as perguntas estarem disponíveis.
+      ref
+          .read(quizProvider.notifier)
+          .startQuiz(widget.category, widget.difficulty, questions);
+    } catch (error) {
+      /// Impede a utilização do contexto depois de o ecrã
+      /// ter sido removido.
+      if (!mounted) {
+        return;
+      }
+
+      /// Guarda uma mensagem simples para apresentar ao utilizador.
+      setState(() {
+        _errorMessage = 'Não foi possível carregar as perguntas.';
+      });
+    }
   }
 
   /// Constrói a interface principal do quiz.
@@ -86,6 +124,45 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
 
     /// Obtém a pergunta actualmente selecionada pelo estado.
     final question = quiz.currentQuestion;
+
+    /// Se ocorreu um erro durante o carregamento, apresenta
+    /// uma interface própria em vez de manter o indicador
+    /// de progresso indefinidamente.
+    if (_errorMessage != null) {
+      return Scaffold(
+        appBar: AppBar(title: Text(widget.category.title)),
+        body: Center(
+          child: Padding(
+            padding: const EdgeInsets.all(24),
+            child: Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                const Icon(Icons.error_outline, size: 56),
+
+                const SizedBox(height: 16),
+
+                Text(_errorMessage!, textAlign: TextAlign.center),
+
+                const SizedBox(height: 20),
+
+                ElevatedButton(
+                  onPressed: () {
+                    /// Limpa a mensagem anterior antes
+                    /// de efectuar uma nova tentativa.
+                    setState(() {
+                      _errorMessage = null;
+                    });
+
+                    _loadQuestions();
+                  },
+                  child: const Text('Tentar novamente'),
+                ),
+              ],
+            ),
+          ),
+        ),
+      );
+    }
 
     /// Enquanto não existir uma pergunta disponível, mostra carregamento.
     if (question == null) {
