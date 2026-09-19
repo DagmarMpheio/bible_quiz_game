@@ -1,17 +1,17 @@
-# bible_quiz_game
+## Direitos de Autor
 
-A new Flutter project.
+Copyright © 2026 Eng. Dagmar Mpheio.
 
-## Getting Started
+Todos os direitos reservados.
 
-This project is a starting point for a Flutter application.
+O código-fonte, design, estrutura, perguntas originais e documentação
+deste projecto não podem ser reproduzidos, distribuídos ou utilizados
+comercialmente sem autorização do titular dos direitos.
 
-A few resources to get you started if this is your first Flutter project:
+### Conteúdo bíblico
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
+As referências bíblicas são utilizadas para fins educativos.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Caso a aplicação apresente texto integral de uma tradução específica
+da Bíblia, aplicam-se também os direitos de autor e as condições de
+utilização definidas pelo respectivo editor ou titular.
