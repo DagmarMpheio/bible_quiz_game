@@ -1,4 +1,5 @@
 import 'package:bible_quiz_game/models/category_model.dart';
+import 'package:bible_quiz_game/models/difficulty_model.dart';
 import 'package:bible_quiz_game/widgets/answer_card.dart';
 import 'package:bible_quiz_game/widgets/quiz_progress.dart';
 import 'package:flutter/material.dart';
@@ -20,10 +21,17 @@ class QuizScreen extends ConsumerStatefulWidget {
   /// Categoria escolhida pelo utilizador antes de iniciar o quiz.
   final QuizCategory category;
 
+  /// Nível de dificuldade seleccionado.
+  final QuizDifficulty difficulty;
+
   /// Nome da rota utilizado pelo GoRouter.
   static const String routeName = 'quiz-screen';
 
-  const QuizScreen({super.key, required this.category});
+  const QuizScreen({
+    super.key,
+    required this.category,
+    required this.difficulty,
+  });
 
   /// Cria o estado responsável pela lógica da tela.
   @override
@@ -51,19 +59,23 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
     });
   }
 
-  /// Carrega as perguntas da categoria escolhida e inicia a sessão.
+  /// Carrega as perguntas correspondentes à categoria e
+  /// dificuldade seleccionadas.
   void _loadQuestions() {
-    /// Obtém a implementação do repositório através do Riverpod.
+    /// Obtém o repositório através do Riverpod.
     final repository = ref.read(questionRepositoryProvider);
 
-    /// Solicita até 10 perguntas pertencentes à categoria actual.
-    final questions = repository.getQuestionsByCategory(
-      widget.category,
+    /// Solicita as perguntas adequadas à sessão actual.
+    final questions = repository.getQuestions(
+      category: widget.category,
+      difficulty: widget.difficulty,
       limit: 10,
     );
 
-    /// Entrega as perguntas ao controlador responsável pelo estado do quiz.
-    ref.read(quizProvider.notifier).startQuiz(widget.category, questions);
+    /// Inicia o quiz com os filtros seleccionados.
+    ref
+        .read(quizProvider.notifier)
+        .startQuiz(widget.category, widget.difficulty, questions);
   }
 
   /// Constrói a interface principal do quiz.
@@ -78,7 +90,9 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
     /// Enquanto não existir uma pergunta disponível, mostra carregamento.
     if (question == null) {
       return Scaffold(
-        appBar: AppBar(title: Text(widget.category.title)),
+        appBar: AppBar(
+          title: Text('${widget.category.title} • ${widget.difficulty.title}'),
+        ),
         body: const Center(child: CircularProgressIndicator()),
       );
     }

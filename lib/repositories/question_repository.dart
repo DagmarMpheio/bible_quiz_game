@@ -1,21 +1,32 @@
 import 'package:bible_quiz_game/models/category_model.dart';
+import 'package:bible_quiz_game/models/difficulty_model.dart';
 import 'package:bible_quiz_game/models/question_model.dart';
 
-/// Define o contrato responsável por fornecer perguntas ao quiz.
+/// Define o contrato responsável pelo acesso às perguntas do quiz.
 ///
-/// Esta abstração desacopla a interface e a lógica do quiz da origem real dos
-/// dados. Actualmente as perguntas são locais, mas futuramente esta interface
-/// poderá ser implementada por Hive CE, Firebase ou uma API sem alterar as
-/// telas que consomem o repositório.
+/// A aplicação não precisa de saber se as perguntas vêm de memória,
+/// Hive CE, Firebase ou de uma API. Essa responsabilidade pertence
+/// às implementações deste repositório.
 abstract class QuestionRepository {
-  /// Retorna perguntas pertencentes à [category] informada.
+  /// Retorna as perguntas disponíveis para uma determinada categoria
+  /// e nível de dificuldade.
   ///
-  /// O parâmetro [limit] define o número máximo de perguntas devolvidas.
-  /// Por padrão, são solicitadas até 10 perguntas.
-  List<QuestionModel> getQuestionsByCategory(
-    QuizCategory category, {
+  /// [category] representa a categoria escolhida pelo utilizador.
+  ///
+  /// [difficulty] representa o nível de dificuldade seleccionado.
+  ///
+  /// [limit] determina a quantidade máxima de perguntas devolvidas.
+  List<QuestionModel> getQuestions({
+    required QuizCategory category,
+    required QuizDifficulty difficulty,
     int limit = 10,
   });
+
+  /// Retorna os níveis de dificuldade que possuem pelo menos uma
+  /// pergunta disponível para determinada categoria.
+  ///
+  /// Este método permite desactivar níveis ainda sem perguntas.
+  List<QuizDifficulty> getAvailableDifficulties(QuizCategory category);
 }
 
 /// Implementação local de [QuestionRepository].
@@ -32,6 +43,7 @@ class LocalQuestionRepository implements QuestionRepository {
       options: ['Abraão', 'Moisés', 'Noé', 'Davi'],
       correctAnswerIndex: 2,
       category: QuizCategory.antigoTestamento,
+      difficulty: QuizDifficulty.facil,
       explanation:
           'Deus ordenou a Noé que construísse uma arca para sobreviver ao dilúvio.',
       bibleReference: 'Génesis 6:14',
@@ -43,6 +55,7 @@ class LocalQuestionRepository implements QuestionRepository {
       options: ['Saul', 'Davi', 'Samuel', 'Salomão'],
       correctAnswerIndex: 1,
       category: QuizCategory.personagens,
+      difficulty: QuizDifficulty.facil,
       explanation: 'Davi derrotou Golias utilizando uma funda e uma pedra.',
       bibleReference: '1 Samuel 17:49-50',
     ),
@@ -53,6 +66,7 @@ class LocalQuestionRepository implements QuestionRepository {
       options: ['Moisés', 'Abraão', 'Josué', 'Elias'],
       correctAnswerIndex: 0,
       category: QuizCategory.antigoTestamento,
+      difficulty: QuizDifficulty.facil,
       explanation: 'Moisés recebeu os mandamentos de Deus no monte Sinai.',
       bibleReference: 'Êxodo 31:18',
     ),
@@ -63,6 +77,7 @@ class LocalQuestionRepository implements QuestionRepository {
       options: ['Jerusalém', 'Nazaré', 'Belém', 'Cafarnaum'],
       correctAnswerIndex: 2,
       category: QuizCategory.jesusCristo,
+      difficulty: QuizDifficulty.facil,
       explanation: 'Jesus nasceu em Belém da Judeia.',
       bibleReference: 'Mateus 2:1',
     ),
@@ -73,6 +88,7 @@ class LocalQuestionRepository implements QuestionRepository {
       options: ['7', '10', '12', '14'],
       correctAnswerIndex: 2,
       category: QuizCategory.novoTestamento,
+      difficulty: QuizDifficulty.facil,
       explanation: 'Jesus escolheu doze discípulos para serem seus apóstolos.',
       bibleReference: 'Lucas 6:13',
     ),
@@ -83,6 +99,7 @@ class LocalQuestionRepository implements QuestionRepository {
       options: ['Pedro', 'João', 'Tomé', 'Judas Iscariotes'],
       correctAnswerIndex: 3,
       category: QuizCategory.jesusCristo,
+      difficulty: QuizDifficulty.medio,
       explanation: 'Judas Iscariotes entregou Jesus às autoridades.',
       bibleReference: 'Mateus 26:14-16',
     ),
@@ -93,6 +110,7 @@ class LocalQuestionRepository implements QuestionRepository {
       options: ['Daniel', 'Elias', 'Isaías', 'Jeremias'],
       correctAnswerIndex: 0,
       category: QuizCategory.personagens,
+      difficulty: QuizDifficulty.medio,
       explanation:
           'Daniel foi lançado na cova dos leões por continuar orando a Deus.',
       bibleReference: 'Daniel 6:16',
@@ -104,6 +122,7 @@ class LocalQuestionRepository implements QuestionRepository {
       options: ['Davi', 'Saul', 'Salomão', 'Samuel'],
       correctAnswerIndex: 1,
       category: QuizCategory.reisEProfetas,
+      difficulty: QuizDifficulty.medio,
       explanation: 'Saul foi escolhido como o primeiro rei de Israel.',
       bibleReference: '1 Samuel 10:1',
     ),
@@ -114,6 +133,7 @@ class LocalQuestionRepository implements QuestionRepository {
       options: ['Êxodo', 'Salmos', 'Génesis', 'Mateus'],
       correctAnswerIndex: 2,
       category: QuizCategory.livrosDaBiblia,
+      difficulty: QuizDifficulty.facil,
       explanation: 'Génesis é o primeiro livro do Antigo Testamento.',
       bibleReference: 'Génesis 1:1',
     ),
@@ -124,6 +144,7 @@ class LocalQuestionRepository implements QuestionRepository {
       options: ['Davi', 'Salomão', 'Saul', 'Josué'],
       correctAnswerIndex: 1,
       category: QuizCategory.reisEProfetas,
+      difficulty: QuizDifficulty.dificil,
       explanation: 'O rei Salomão construiu o primeiro templo em Jerusalém.',
       bibleReference: '1 Reis 6:1',
     ),
@@ -137,7 +158,6 @@ class LocalQuestionRepository implements QuestionRepository {
   ///
   /// Antes do retorno, a lista é embaralhada para variar a sequência das
   /// perguntas entre diferentes tentativas.
-  @override
   List<QuestionModel> getQuestionsByCategory(
     QuizCategory category, {
     int limit = 10,
@@ -167,5 +187,58 @@ class LocalQuestionRepository implements QuestionRepository {
 
     /// Quando a quantidade disponível é menor ou igual ao limite, retorna todas.
     return questions;
+  }
+
+  /// Retorna perguntas filtradas pela categoria e dificuldade escolhidas.
+  @override
+  List<QuestionModel> getQuestions({
+    required QuizCategory category,
+    required QuizDifficulty difficulty,
+    int limit = 10,
+  }) {
+    /// Filtra inicialmente as perguntas pela dificuldade seleccionada.
+    var questions = _questions.where((question) {
+      /// Na categoria Geral, qualquer categoria bíblica é aceite.
+      ///
+      /// Nas restantes categorias, a pergunta tem obrigatoriamente
+      /// de pertencer à categoria seleccionada.
+      final matchesCategory =
+          category == QuizCategory.geral || question.category == category;
+
+      /// A dificuldade da pergunta deve corresponder exactamente
+      /// ao nível escolhido pelo utilizador.
+      final matchesDifficulty = question.difficulty == difficulty;
+
+      return matchesCategory && matchesDifficulty;
+    }).toList();
+
+    /// Embaralha as perguntas para evitar que sejam apresentadas
+    /// sempre pela mesma ordem.
+    questions.shuffle();
+
+    /// Limita a quantidade de perguntas devolvidas.
+    if (questions.length > limit) {
+      return questions.take(limit).toList();
+    }
+
+    return questions;
+  }
+
+  /// Retorna apenas os níveis que possuem perguntas disponíveis
+  /// para determinada categoria.
+  @override
+  List<QuizDifficulty> getAvailableDifficulties(QuizCategory category) {
+    return QuizDifficulty.values.where((difficulty) {
+      /// Procura pelo menos uma pergunta que corresponda à categoria
+      /// e ao nível de dificuldade actualmente analisado.
+      return _questions.any((question) {
+        final matchesCategory =
+            category == QuizCategory.geral || question.category == category;
+
+        final matchesDifficulty = question.difficulty == difficulty;
+
+        return matchesCategory && matchesDifficulty;
+      });
+    }).toList();
   }
 }

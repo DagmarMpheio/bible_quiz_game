@@ -1,4 +1,5 @@
 import 'package:bible_quiz_game/models/category_model.dart';
+import 'package:bible_quiz_game/models/difficulty_model.dart';
 import 'package:bible_quiz_game/models/question_model.dart';
 import 'package:bible_quiz_game/models/quiz_answer_model.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
@@ -48,6 +49,11 @@ class QuizState {
   /// Será `null` enquanto o utilizador ainda não tiver respondido.
   final int? selectedAnswer;
 
+  /// Nível de dificuldade escolhido para a sessão actual.
+  ///
+  /// Antes de um quiz ser iniciado, este valor será `null`.
+  final QuizDifficulty? difficulty;
+
   /// Indica se a pergunta actual já foi respondida.
   ///
   /// Esta propriedade impede que o utilizador responda mais de uma
@@ -73,6 +79,7 @@ class QuizState {
     this.selectedAnswer,
     this.answered = false,
     this.answerHistory = const [],
+    this.difficulty,
   });
 
   /// Retorna a pergunta actualmente apresentada.
@@ -114,17 +121,23 @@ class QuizNotifier extends Notifier<QuizState> {
     return const QuizState();
   }
 
-  /// Inicia uma nova sessão de quiz.
+  /// Inicia uma nova sessão do quiz.
   ///
-  /// [category] representa a categoria escolhida pelo utilizador.
+  /// [category] identifica a categoria seleccionada.
   ///
-  /// [questions] contém as perguntas que serão apresentadas durante
-  /// esta sessão.
+  /// [difficulty] identifica o nível escolhido pelo utilizador.
   ///
-  /// Ao iniciar um novo quiz, todos os dados da tentativa anterior
-  /// são descartados.
-  void startQuiz(QuizCategory category, List<QuestionModel> questions) {
-    state = QuizState(category: category, questions: questions);
+  /// [questions] contém as perguntas que serão utilizadas nesta sessão.
+  void startQuiz(
+    QuizCategory category,
+    QuizDifficulty difficulty,
+    List<QuestionModel> questions,
+  ) {
+    state = QuizState(
+      category: category,
+      difficulty: difficulty,
+      questions: questions,
+    );
   }
 
   /// Regista a alternativa escolhida pelo utilizador.
@@ -167,6 +180,9 @@ class QuizNotifier extends Notifier<QuizState> {
     /// Atualiza o estado do quiz.
     state = QuizState(
       category: state.category,
+
+      /// Mantém a dificuldade durante toda a sessão.
+      difficulty: state.difficulty,
       questions: state.questions,
       currentIndex: state.currentIndex,
 
@@ -203,6 +219,9 @@ class QuizNotifier extends Notifier<QuizState> {
     /// Cria o estado correspondente à próxima pergunta.
     state = QuizState(
       category: state.category,
+
+      /// Preserva o nível seleccionado.
+      difficulty: state.difficulty,
       questions: state.questions,
 
       /// Incrementa o índice da pergunta.

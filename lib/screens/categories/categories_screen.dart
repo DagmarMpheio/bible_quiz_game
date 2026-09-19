@@ -70,9 +70,12 @@ class CategoriesScreen extends StatelessWidget {
             title: category.title,
             icon: _getCategoryIcon(category),
             onTap: () {
-              /// Abre o quiz e envia o nome interno da categoria como parâmetro.
+              /// Abre o ecrã de escolha da dificuldade.
+              ///
+              /// A categoria seleccionada é enviada através da rota para que
+              /// apenas os níveis disponíveis possam ser apresentados.
               context.pushNamed(
-                QuizScreen.routeName,
+                DifficultyScreen.routeName,
                 pathParameters: {'category': category.name},
               );
             },

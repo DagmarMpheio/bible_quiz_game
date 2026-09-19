@@ -1,10 +1,16 @@
 import 'package:bible_quiz_game/models/category_model.dart';
+import 'package:bible_quiz_game/models/difficulty_model.dart';
 
 /// Representa uma pergunta disponível no Quiz Bíblico.
 ///
-/// Cada instância contém todos os dados necessários para apresentar uma
-/// pergunta, validar a resposta selecionada pelo utilizador e apresentar uma
-/// explicação após a resposta.
+/// Cada pergunta possui:
+/// - um enunciado;
+/// - alternativas de resposta;
+/// - a resposta correcta;
+/// - uma categoria;
+/// - um nível de dificuldade;
+/// - uma explicação;
+/// - uma referência bíblica.
 class QuestionModel {
   /// Identificador único da pergunta.
   final String id;
@@ -29,6 +35,9 @@ class QuestionModel {
   /// Categoria temática à qual a pergunta pertence.
   final QuizCategory category;
 
+  /// Nível de dificuldade da pergunta.
+  final QuizDifficulty difficulty;
+
   /// Pequena explicação apresentada depois de o utilizador responder.
   final String explanation;
 
@@ -45,6 +54,7 @@ class QuestionModel {
     required this.options,
     required this.correctAnswerIndex,
     required this.category,
+    required this.difficulty,
     required this.explanation,
     required this.bibleReference,
   });

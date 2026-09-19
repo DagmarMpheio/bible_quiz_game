@@ -1,4 +1,5 @@
 import 'package:bible_quiz_game/models/category_model.dart';
+import 'package:bible_quiz_game/models/difficulty_model.dart';
 import 'package:go_router/go_router.dart';
 import '/screens/views.dart';
 
@@ -41,25 +42,43 @@ final GoRouter appRouter = GoRouter(
       },
     ),
 
-    /// Rota da tela do quiz.
+    /// Ecrã de selecção da dificuldade.
     ///
-    /// O parâmetro dinâmico `:category` identifica a categoria escolhida pelo
-    /// utilizador e permite reconstruir o respetivo valor de [QuizCategory].
+    /// Recebe a categoria seleccionada anteriormente.
     GoRoute(
-      path: '/quiz/:category',
-      name: QuizScreen.routeName,
+      path: '/difficulty/:category',
+      name: DifficultyScreen.routeName,
       builder: (context, state) {
-        /// Obtém o nome da categoria recebido através da URL.
-        ///
-        /// O operador `!` é utilizado porque esta rota só é válida quando o
-        /// parâmetro `category` estiver presente.
+        /// Obtém o nome da categoria através da rota.
         final categoryName = state.pathParameters['category']!;
 
-        /// Converte o texto recebido na rota para o respetivo valor do enum.
+        /// Converte o texto novamente para o enum correspondente.
         final category = QuizCategory.values.byName(categoryName);
 
-        /// Abre o quiz já configurado com a categoria escolhida.
-        return QuizScreen(category: category);
+        return DifficultyScreen(category: category);
+      },
+    ),
+
+    /// Ecrã onde as perguntas são apresentadas.
+    ///
+    /// A rota recebe a categoria e a dificuldade escolhidas.
+    GoRoute(
+      path: '/quiz/:category/:difficulty',
+      name: QuizScreen.routeName,
+      builder: (context, state) {
+        /// Recupera a categoria recebida através da rota.
+        final categoryName = state.pathParameters['category']!;
+
+        /// Recupera a dificuldade recebida através da rota.
+        final difficultyName = state.pathParameters['difficulty']!;
+
+        /// Converte o nome da categoria para [QuizCategory].
+        final category = QuizCategory.values.byName(categoryName);
+
+        /// Converte o nome da dificuldade para [QuizDifficulty].
+        final difficulty = QuizDifficulty.values.byName(difficultyName);
+
+        return QuizScreen(category: category, difficulty: difficulty);
       },
     ),
 
