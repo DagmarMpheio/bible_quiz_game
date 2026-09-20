@@ -1,3 +1,5 @@
+import 'package:bible_quiz_game/models/quiz_mode.dart';
+
 import 'achievement_model.dart';
 import 'category_model.dart';
 import 'difficulty_model.dart';
@@ -174,13 +176,13 @@ class UserProgressModel {
 
   /// Calcula o XP recebido por uma tentativa.
   ///
-  /// Regra inicial:
+  /// Regras:
   ///
   /// - 10 XP por resposta correcta;
-  /// - 20 XP por concluir o quiz;
-  /// - Fácil: sem bónus adicional;
+  /// - 20 XP por concluir;
   /// - Médio: +25 XP;
-  /// - Difícil: +50 XP.
+  /// - Difícil: +50 XP;
+  /// - Quiz Diário: +75 XP.
   static int _calculateQuizXp(QuizHistoryModel history) {
     final correctAnswerXp = history.correctAnswers * 10;
 
@@ -192,7 +194,11 @@ class UserProgressModel {
       QuizDifficulty.dificil => 50,
     };
 
-    return correctAnswerXp + completionXp + difficultyXp;
+    /// O desafio diário oferece um bónus adicional para
+    /// incentivar a utilização regular da aplicação.
+    final dailyBonusXp = history.mode == QuizMode.daily ? 75 : 0;
+
+    return correctAnswerXp + completionXp + difficultyXp + dailyBonusXp;
   }
 
   /// Retorna apenas a componente da data.

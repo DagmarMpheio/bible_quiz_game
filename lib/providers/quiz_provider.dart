@@ -2,6 +2,7 @@ import 'package:bible_quiz_game/models/category_model.dart';
 import 'package:bible_quiz_game/models/difficulty_model.dart';
 import 'package:bible_quiz_game/models/question_model.dart';
 import 'package:bible_quiz_game/models/quiz_answer_model.dart';
+import 'package:bible_quiz_game/models/quiz_mode.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 
 import '../repositories/question_repository.dart';
@@ -93,6 +94,11 @@ class QuizState {
   /// Também é utilizado como identificador do histórico.
   final String? sessionId;
 
+  /// Modo da sessão actual.
+  ///
+  /// Por padrão, todas as sessões continuam a ser quizzes normais.
+  final QuizMode mode;
+
   /// Cria um estado do quiz.
   ///
   /// Os valores padrão representam um quiz ainda não iniciado.
@@ -106,6 +112,7 @@ class QuizState {
     this.answered = false,
     this.answerHistory = const [],
     this.difficulty,
+    this.mode = QuizMode.standard,
   });
 
   /// Retorna a pergunta actualmente apresentada.
@@ -147,24 +154,26 @@ class QuizNotifier extends Notifier<QuizState> {
     return const QuizState();
   }
 
-  /// Inicia uma nova sessão do Quiz Bíblico.
+  /// Inicia uma nova sessão.
   ///
-  /// Cada nova tentativa recebe um identificador próprio.
-  /// Esse identificador será posteriormente utilizado para
-  /// persistir o resultado no histórico.
+  /// [sessionId] pode ser fornecido por funcionalidades especiais,
+  /// como o Quiz Diário.
+  ///
+  /// Quando não é fornecido, é criado automaticamente um
+  /// identificador único baseado no timestamp.
   void startQuiz(
     QuizCategory category,
     QuizDifficulty difficulty,
-    List<QuestionModel> questions,
-  ) {
+    List<QuestionModel> questions, {
+    QuizMode mode = QuizMode.standard,
+    String? sessionId,
+  }) {
     state = QuizState(
-      /// O timestamp em microssegundos fornece um identificador
-      /// suficientemente único para sessões locais.
-      sessionId: 'quiz-${DateTime.now().microsecondsSinceEpoch}',
-
+      sessionId: sessionId ?? 'quiz-${DateTime.now().microsecondsSinceEpoch}',
       category: category,
       difficulty: difficulty,
       questions: questions,
+      mode: mode,
     );
   }
 
@@ -234,6 +243,9 @@ class QuizNotifier extends Notifier<QuizState> {
       /// Como o estado é imutável, não modificamos diretamente a lista
       /// existente.
       answerHistory: [...state.answerHistory, answerRecord],
+
+      /// Mantém o modo da sessão.
+      mode: state.mode,
     );
   }
 

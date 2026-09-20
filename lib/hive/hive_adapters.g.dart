@@ -23,13 +23,14 @@ class QuizHistoryModelAdapter extends TypeAdapter<QuizHistoryModel> {
       correctAnswers: (fields[3] as num).toInt(),
       totalQuestions: (fields[4] as num).toInt(),
       completedAt: fields[5] as DateTime,
+      quizModeName: fields[6] == null ? 'standard' : fields[6] as String,
     );
   }
 
   @override
   void write(BinaryWriter writer, QuizHistoryModel obj) {
     writer
-      ..writeByte(6)
+      ..writeByte(7)
       ..writeByte(0)
       ..write(obj.id)
       ..writeByte(1)
@@ -41,7 +42,9 @@ class QuizHistoryModelAdapter extends TypeAdapter<QuizHistoryModel> {
       ..writeByte(4)
       ..write(obj.totalQuestions)
       ..writeByte(5)
-      ..write(obj.completedAt);
+      ..write(obj.completedAt)
+      ..writeByte(6)
+      ..write(obj.quizModeName);
   }
 
   @override

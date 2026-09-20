@@ -1,3 +1,5 @@
+import 'package:bible_quiz_game/models/quiz_mode.dart';
+
 import 'category_model.dart';
 import 'difficulty_model.dart';
 
@@ -23,6 +25,12 @@ class QuizHistoryModel {
   /// Nome interno do nível de dificuldade seleccionado.
   final String difficultyName;
 
+  /// Nome interno do modo em que o quiz foi realizado.
+  ///
+  /// O valor possui um valor padrão para manter compatibilidade
+  /// com tentativas guardadas antes da introdução do Quiz Diário.
+  final String quizModeName;
+
   /// Quantidade de respostas correctas.
   final int correctAnswers;
 
@@ -40,6 +48,9 @@ class QuizHistoryModel {
     required this.correctAnswers,
     required this.totalQuestions,
     required this.completedAt,
+
+    /// Tentativas antigas são consideradas quizzes normais.
+    this.quizModeName = 'standard',
   });
 
   /// Converte o nome guardado para [QuizCategory].
@@ -70,5 +81,20 @@ class QuizHistoryModel {
     }
 
     return (correctAnswers / totalQuestions) * 100;
+  }
+
+  /// Modo em que esta tentativa foi realizada.
+  ///
+  /// Caso seja encontrado um valor desconhecido na base local,
+  /// assume-se o modo normal para evitar erros na aplicação.
+  QuizMode get mode {
+    return QuizMode.values.firstWhere(
+      (mode) {
+        return mode.name == quizModeName;
+      },
+      orElse: () {
+        return QuizMode.standard;
+      },
+    );
   }
 }

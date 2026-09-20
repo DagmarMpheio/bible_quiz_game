@@ -63,6 +63,10 @@ class _ResultScreenState extends ConsumerState<ResultScreen> {
       id: quiz.sessionId!,
       categoryName: quiz.category!.name,
       difficultyName: quiz.difficulty!.name,
+
+      /// Guarda se a sessão foi normal ou diária.
+      quizModeName: quiz.mode.name,
+
       correctAnswers: quiz.correctAnswers,
       totalQuestions: quiz.questions.length,
       completedAt: DateTime.now(),

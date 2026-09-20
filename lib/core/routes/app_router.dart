@@ -1,5 +1,6 @@
 import 'package:bible_quiz_game/models/category_model.dart';
 import 'package:bible_quiz_game/models/difficulty_model.dart';
+import 'package:bible_quiz_game/models/quiz_mode.dart';
 import 'package:go_router/go_router.dart';
 import '/screens/views.dart';
 
@@ -66,19 +67,31 @@ final GoRouter appRouter = GoRouter(
       path: '/quiz/:category/:difficulty',
       name: QuizScreen.routeName,
       builder: (context, state) {
-        /// Recupera a categoria recebida através da rota.
-        final categoryName = state.pathParameters['category']!;
+        final category = QuizCategory.values.byName(
+          state.pathParameters['category']!,
+        );
 
-        /// Recupera a dificuldade recebida através da rota.
-        final difficultyName = state.pathParameters['difficulty']!;
+        final difficulty = QuizDifficulty.values.byName(
+          state.pathParameters['difficulty']!,
+        );
 
-        /// Converte o nome da categoria para [QuizCategory].
-        final category = QuizCategory.values.byName(categoryName);
+        /// Lê o modo enviado através da query string.
+        final modeName = state.uri.queryParameters['mode'];
 
-        /// Converte o nome da dificuldade para [QuizDifficulty].
-        final difficulty = QuizDifficulty.values.byName(difficultyName);
+        final mode = QuizMode.values.firstWhere(
+          (item) {
+            return item.name == modeName;
+          },
+          orElse: () {
+            return QuizMode.standard;
+          },
+        );
 
-        return QuizScreen(category: category, difficulty: difficulty);
+        return QuizScreen(
+          category: category,
+          difficulty: difficulty,
+          mode: mode,
+        );
       },
     ),
 
@@ -137,6 +150,15 @@ final GoRouter appRouter = GoRouter(
       name: ProgressScreen.routeName,
       builder: (context, state) {
         return const ProgressScreen();
+      },
+    ),
+
+    /// Rota de entrada do desafio diário.
+    GoRoute(
+      path: '/daily-quiz',
+      name: DailyQuizScreen.routeName,
+      builder: (context, state) {
+        return const DailyQuizScreen();
       },
     ),
   ],

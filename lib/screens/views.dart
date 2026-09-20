@@ -29,3 +29,4 @@ export 'about/about_screen.dart';
 export 'history/history_screen.dart';
 export 'statistics/statistics_screen.dart';
 export 'progress/progress_screen.dart';
+export 'daily/daily_quiz_screen.dart';

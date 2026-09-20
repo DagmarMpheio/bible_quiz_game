@@ -1,5 +1,6 @@
 import 'package:bible_quiz_game/models/category_model.dart';
 import 'package:bible_quiz_game/models/difficulty_model.dart';
+import 'package:bible_quiz_game/models/quiz_mode.dart';
 import 'package:bible_quiz_game/widgets/answer_card.dart';
 import 'package:bible_quiz_game/widgets/quiz_progress.dart';
 import 'package:flutter/material.dart';
@@ -24,6 +25,9 @@ class QuizScreen extends ConsumerStatefulWidget {
   /// Nível de dificuldade seleccionado.
   final QuizDifficulty difficulty;
 
+  /// Modo em que este ecrã foi iniciado.
+  final QuizMode mode;
+
   /// Nome da rota utilizado pelo GoRouter.
   static const String routeName = 'quiz-screen';
 
@@ -31,6 +35,7 @@ class QuizScreen extends ConsumerStatefulWidget {
     super.key,
     required this.category,
     required this.difficulty,
+    this.mode = QuizMode.standard,
   });
 
   /// Cria o estado responsável pela lógica da tela.
@@ -53,13 +58,14 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
   void initState() {
     super.initState();
 
-    /// Agenda o carregamento das perguntas para depois do primeiro frame.
+    /// O quiz normal precisa de carregar as perguntas
+    /// através do repositório.
     ///
-    /// Isso evita modificar o estado do provider durante a fase inicial de
-    /// construção da interface.
-    WidgetsBinding.instance.addPostFrameCallback((_) {
+    /// No Quiz Diário as perguntas já foram preparadas
+    /// pelo DailyQuizService antes da navegação.
+    if (widget.mode == QuizMode.standard) {
       _loadQuestions();
-    });
+    }
   }
 
   /// Carrega as perguntas correspondentes aos filtros seleccionados.
@@ -130,7 +136,13 @@ class _QuizScreenState extends ConsumerState<QuizScreen> {
     /// de progresso indefinidamente.
     if (_errorMessage != null) {
       return Scaffold(
-        appBar: AppBar(title: Text(widget.category.title)),
+        appBar: AppBar(
+          title: Text(
+            widget.mode == QuizMode.daily
+                ? 'Quiz Diário'
+                : '${widget.category.title} • ${widget.difficulty.title}',
+          ),
+        ),
         body: Center(
           child: Padding(
             padding: const EdgeInsets.all(24),

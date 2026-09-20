@@ -59,6 +59,19 @@ class HomeScreen extends StatelessWidget {
 
               const SizedBox(height: 12),
 
+              /// Abre o desafio diário.
+              ///
+              /// A própria DailyQuizScreen verifica se o desafio
+              /// já foi concluído no dia actual.
+              OutlinedButton.icon(
+                onPressed: () {
+                  context.pushNamed(DailyQuizScreen.routeName);
+                },
+                icon: const Icon(Icons.calendar_month_rounded),
+                label: const Text('Quiz Diário'),
+              ),
+              const SizedBox(height: 12),
+
               /// Permite consultar todas as tentativas anteriormente
               /// concluídas e guardadas localmente.
               OutlinedButton.icon(

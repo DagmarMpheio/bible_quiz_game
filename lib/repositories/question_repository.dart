@@ -24,6 +24,12 @@ abstract class QuestionRepository {
   /// Apenas são devolvidos níveis que possuam pelo menos uma
   /// pergunta disponível.
   Future<List<QuizDifficulty>> getAvailableDifficulties(QuizCategory category);
+
+  /// Retorna todas as perguntas disponíveis no banco local.
+  ///
+  /// Este método é utilizado pelo Quiz Diário porque a selecção
+  /// das perguntas depende de uma regra própria baseada na data.
+  Future<List<QuestionModel>> getAllQuestions();
 }
 
 /// Implementação local do repositório de perguntas.
@@ -125,5 +131,16 @@ class LocalQuestionRepository implements QuestionRepository {
         return matchesCategory && question.difficulty == difficulty;
       });
     }).toList();
+  }
+
+  /// Retorna todas as perguntas carregadas do ficheiro JSON.
+  ///
+  /// É devolvida uma lista não modificável para impedir que
+  /// consumidores externos alterem acidentalmente o cache.
+  @override
+  Future<List<QuestionModel>> getAllQuestions() async {
+    final questions = await _loadQuestions();
+
+    return List<QuestionModel>.unmodifiable(questions);
   }
 }
