@@ -119,5 +119,15 @@ final GoRouter appRouter = GoRouter(
         return const HistoryScreen();
       },
     ),
+
+    /// Rota responsável por apresentar as estatísticas
+    /// de desempenho do utilizador.
+    GoRoute(
+      path: '/statistics',
+      name: StatisticsScreen.routeName,
+      builder: (context, state) {
+        return const StatisticsScreen();
+      },
+    ),
   ],
 );

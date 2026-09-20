@@ -71,6 +71,18 @@ class HomeScreen extends StatelessWidget {
 
               const SizedBox(height: 12),
 
+              /// Abre o ecrã responsável pela análise do desempenho
+              /// do utilizador nos quizzes concluídos.
+              OutlinedButton.icon(
+                onPressed: () {
+                  context.pushNamed(StatisticsScreen.routeName);
+                },
+                icon: const Icon(Icons.bar_chart_rounded),
+                label: const Text('Estatísticas'),
+              ),
+
+              const SizedBox(height: 12),
+
               /// Permite consultar informações sobre a aplicação,
               /// autoria, copyright e licenciamento.
               TextButton.icon(
