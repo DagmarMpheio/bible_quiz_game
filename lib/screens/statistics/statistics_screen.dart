@@ -143,16 +143,30 @@ class _GeneralStatistics extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GridView.count(
-      /// Impede que a grelha tenha scroll próprio.
+      /// O GridView encontra-se dentro de um ListView.
+      ///
+      /// Por isso, deve ocupar apenas o espaço necessário
+      /// para apresentar os seus elementos.
       shrinkWrap: true,
+
+      /// Desactiva o scroll interno para que apenas o ListView
+      /// principal seja responsável pela deslocação do ecrã.
       physics: const NeverScrollableScrollPhysics(),
 
+      /// Apresenta dois indicadores por linha.
       crossAxisCount: 2,
+
+      /// Espaçamento horizontal entre os cards.
       crossAxisSpacing: 12,
+
+      /// Espaçamento vertical entre os cards.
       mainAxisSpacing: 12,
 
-      /// Ajusta a proporção dos cards.
-      childAspectRatio: 1.45,
+      /// Define cards ligeiramente mais altos.
+      ///
+      /// O valor anterior (1.45) deixava pouco espaço vertical
+      /// em alguns tamanhos de ecrã e provocava RenderFlex overflow.
+      childAspectRatio: 1.25,
 
       children: [
         _MetricCard(
@@ -204,6 +218,11 @@ class _MetricCard extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.all(16),
         child: Column(
+          /// Faz a coluna ocupar apenas o espaço necessário
+          /// para apresentar o seu conteúdo.
+          mainAxisSize: MainAxisSize.min,
+
+          /// Mantém os elementos visualmente centralizados.
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Icon(icon, color: AppColors.primary, size: 28),
