@@ -83,6 +83,16 @@ class HomeScreen extends StatelessWidget {
 
               const SizedBox(height: 12),
 
+              /// Abre o ecrã de progressão do utilizador.
+              OutlinedButton.icon(
+                onPressed: () {
+                  context.pushNamed(ProgressScreen.routeName);
+                },
+                icon: const Icon(Icons.emoji_events_outlined),
+                label: const Text('Progresso'),
+              ),
+              const SizedBox(height: 12),
+
               /// Permite consultar informações sobre a aplicação,
               /// autoria, copyright e licenciamento.
               TextButton.icon(

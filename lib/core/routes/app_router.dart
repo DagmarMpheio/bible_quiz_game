@@ -129,5 +129,15 @@ final GoRouter appRouter = GoRouter(
         return const StatisticsScreen();
       },
     ),
+
+    /// Rota responsável por apresentar o progresso,
+    /// nível, XP, sequências e conquistas do utilizador.
+    GoRoute(
+      path: '/progress',
+      name: ProgressScreen.routeName,
+      builder: (context, state) {
+        return const ProgressScreen();
+      },
+    ),
   ],
 );
